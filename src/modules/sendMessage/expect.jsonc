@@ -15,15 +15,18 @@
         "default": "phone",
         "options": [
             {
-                "label": "A phone number",
+                "label": "A person (phone number or username)",
                 "value": "phone",
                 "nested": [
                     {
                         "name": "to",
-                        "label": "Phone number",
+                        "label": "Recipient",
                         "type": "text",
                         "required": true,
-                        "help": "In international format, for example `+40711111111`."
+                        "validate": {
+                            "max": 32
+                        },
+                        "help": "Depends on the account's service:\n- WhatsApp: phone number in international format, `+40711111111`\n- Telegram: `@username` or `+40711111111`\n- Mastodon: `@user@server`, sent as a direct (private) post\n- Bluesky: `@handle.bsky.social`, sent as a direct message"
                     }
                 ]
             },
