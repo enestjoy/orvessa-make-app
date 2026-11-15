@@ -9,30 +9,72 @@ AI models from Make scenarios, all with one Orvessa API key.
 
 ## Modules
 
+25 modules in seven groups, plus a universal API call.
+
+### Triggers (instant)
+
+| Module | What it does |
+| --- | --- |
+| Watch Messages | Fires when a message arrives, or when a message you sent changes status (sent, delivered, read, failed). Filter by event and account; recovered and imported messages can be skipped. |
+| Watch Account Events | Fires when an account changes status or finishes connecting, a history import ends, or an e-mail arrives or bounces. |
+
+Both register their webhook in Orvessa when you create it in Make and remove it when you delete it.
+
 ### Messaging
 
 | Module | Type | What it does |
 | --- | --- | --- |
-| Send a Message | Action | Sends text through a connected account, to a phone number or an existing conversation. Pick the account from a list. |
-| Get a Message | Action | Returns a message and its status: `pending`, `sent`, `delivered`, `read` or `failed`. |
-| List Connected Accounts | Search | Lists your accounts, filtered by status or provider, one bundle per account. |
+| Send a Message | Action | Text to a phone number, a username or an existing conversation (picked from a list). |
+| Send a File | Action | Uploads a file from any Make module and sends it, with a caption. |
+| Get a Message | Action | A message and its status: `pending`, `sent`, `delivered`, `read` or `failed`. |
+| List Messages in a Conversation | Search | The chat history, newest first. |
+| Download an Attachment | Action | A received or sent file, ready for the next module. |
+
+### Conversations and contacts
+
+| Module | Type | What it does |
+| --- | --- | --- |
+| List Conversations | Search | An account's conversations, most recently active first. |
+| Get a Conversation | Action | A conversation and the person or group it is with. |
+| List Contacts | Search | The people an account has exchanged messages with. |
+
+### Accounts
+
+| Module | Type | What it does |
+| --- | --- | --- |
+| List Connected Accounts | Search | Accounts, filtered by status or provider. |
+| Get an Account | Action | Live connection state and supported connect methods. |
+| Get Account Limits | Search | Sending limits and how much the last 24 hours used. |
+| Create an Account | Action | Creates an account (WhatsApp, Telegram, Bluesky…) and returns the link where its owner connects it. |
+| Create a Connect Link | Action | A new connect or reconnect link for an existing account. |
+| Reconnect an Account | Action | Restarts a failed, expired or disconnected account. |
+| Import Message History | Action | Imports earlier conversations and messages in the background. |
+| Get a History Import | Action | The progress of an import. |
+| Delete an Account | Action | Deletes an account and everything stored for it. |
 
 ### Social
 
 | Module | Type | What it does |
 | --- | --- | --- |
-| Create a Post | Action | Publishes a public post from a connected Bluesky, Mastodon, LinkedIn or X account, with an optional image. Returns the post ID and URL. |
+| Create a Post | Action | A public post on Bluesky, Mastodon, LinkedIn or X, with an optional image. |
 
 ### AI Gateway
 
 | Module | Type | What it does |
 | --- | --- | --- |
-| Create a Chat Completion | Action | Sends system, user and assistant messages to a model and returns the answer, finish reason and token usage. |
-| List AI Models | Search | Lists the models your connected AI providers offer, one bundle per model. |
-| Test AI Completion | Action | Sends a short test prompt to a model, to check it answers. |
+| Create a Chat Completion | Action | System, user and assistant messages to a model; returns the answer, finish reason and token usage. |
+| List AI Models | Search | The models your connected AI providers offer. |
+| Test AI Completion | Action | Checks that a model answers. |
 
-Every field you pick from (account, model) is a list loaded from Orvessa; in mapping mode you
-can map the ID instead.
+### Other
+
+| Module | Type | What it does |
+| --- | --- | --- |
+| Run an Operation | Action | Any operation an account declares: e-mail, calendar, GitHub, Cloudflare, Telegram bots and more. |
+| Make an API Call | Universal | Any call to the Orvessa API with the connection's key. |
+
+Every field you pick from (account, conversation, model, operation, provider) is a list loaded
+from Orvessa; in mapping mode you can map the ID instead.
 
 ## Connection
 
@@ -42,10 +84,13 @@ Add only the scopes your scenarios need:
 
 | Scope | Needed for |
 | --- | --- |
-| `accounts:read` | The connection check, List Connected Accounts, the account list in Send a Message |
-| `messages:send` | Send a Message, Create a Post |
-| `messages:read` | Get a Message |
-| `ai:use` | Create a Chat Completion, List AI Models, Test AI Completion |
+| `accounts:read` | The connection check, account lists, Get an Account, limits, history progress |
+| `accounts:write` | Create an Account, Create a Connect Link, Reconnect, Delete, Import Message History |
+| `messages:send` | Send a Message, Send a File, Create a Post |
+| `messages:read` | Get a Message, messages, conversations, contacts, attachments |
+| `webhooks:manage` | Watch Messages, Watch Account Events |
+| `ai:use` | The AI Gateway modules |
+| `productivity:read`, `productivity:write` | Run an Operation on e-mail, calendar, GitHub or Cloudflare accounts |
 
 ## Errors
 

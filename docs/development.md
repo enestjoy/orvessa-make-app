@@ -2,6 +2,10 @@
 
 ## Workflow
 
+> Do not turn on the GitHub integration in Make's app editor for this repository. It writes the
+> app to the repository root in its own format, next to `src/`, and its `readme.md` collides with
+> `README.md` on Windows. `src/` and `scripts/make-app.mjs` are the single source.
+
 1. `npm run pull` before you start, so `src/` matches what runs in Make. Someone may have changed
    the app in Make's web editor.
 2. Edit the files in `src/`. Sections are JSONC: comments and trailing commas are allowed, and
@@ -79,6 +83,14 @@ The option lists (RPCs) can be run on their own through the Make API or MCP
 | Send a Message, then Get a Message: Telegram (`+phone`) | `pending`, then `sent` |
 | Send a Message: Bluesky (`@enestjoy.bsky.social`) | `failed`, `error_code` `invalid_message`; probably a message to the account itself |
 | Send a Message, then Get a Message: Mastodon (`@user@mastodon.social`) | `pending`, then `sent` (direct post) |
+| Read modules: List/Get Conversation, List Messages, List Contacts, Get an Account, Run an Operation (`contacts.list`), Make an API Call | Passed (WhatsApp account) |
+| Send a File (68-byte text file, WhatsApp) | Delivered; Download an Attachment returned the same name, type, size and content |
+| Create an Account, Create a Connect Link, Get an Account, Reconnect an Account, Delete an Account | Passed on two temporary WhatsApp accounts, both deleted |
+| Get Account Limits | Passed |
+| Import Message History, Get a History Import | `queued`, then `completed` after 10 s (1 conversation) |
+| Option lists: providers, conversations, operations | Passed |
+| Watch Messages: webhook attach | Registered in Orvessa |
+| Watch Messages: delivery | **Blocked by Orvessa**: deliveries to host names failed on Node 20+ (`connection_failed`); fixed in enestjoy/unified-account-hub#122, to verify after deploy |
 | Create a Post: Bluesky, Mastodon, LinkedIn | Published; ID and URL returned (LinkedIn returns the post URN, no URL) |
 | Create a Post: X | `[502]`: X refused the post; the reason is not passed on by Orvessa (plan or credits, expired token or duplicate text) |
 | Create a Chat Completion, every provider (2026-11-15, all-scope key) | Groq, Gemini, GitHub, Codex and an OpenRouter free model answered; `openrouter/google/gemma-4-31b-it:free` was unavailable (502) at that moment |

@@ -6,6 +6,14 @@ All notable changes to the Orvessa app for Make. Versions follow the app version
 
 ### Added
 
+- **Instant triggers** Watch Messages and Watch Account Events; their webhooks register and
+  unregister themselves in Orvessa.
+- **Messaging**: Send a File, List Messages in a Conversation, Download an Attachment.
+- **Conversations and contacts**: List Conversations, Get a Conversation, List Contacts.
+- **Accounts**: Get an Account, Get Account Limits, Create an Account, Create a Connect Link,
+  Reconnect an Account, Import Message History, Get a History Import, Delete an Account.
+- **Run an Operation** (any capability of an account) and **Make an API Call**.
+- Option lists for conversations, operations and providers; conversation picker in Send a Message.
 - **Create a Post**: public posts on Bluesky, Mastodon, LinkedIn and X, with an account list
   of the accounts that can post (from Orvessa's capability discovery).
 - **Create a Chat Completion**: system, user and assistant messages, maximum tokens and
