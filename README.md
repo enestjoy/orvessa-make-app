@@ -17,6 +17,12 @@ AI models from Make scenarios, all with one Orvessa API key.
 | Get a Message | Action | Returns a message and its status: `pending`, `sent`, `delivered`, `read` or `failed`. |
 | List Connected Accounts | Search | Lists your accounts, filtered by status or provider, one bundle per account. |
 
+### Social
+
+| Module | Type | What it does |
+| --- | --- | --- |
+| Create a Post | Action | Publishes a public post from a connected Bluesky, Mastodon, LinkedIn or X account, with an optional image. Returns the post ID and URL. |
+
 ### AI Gateway
 
 | Module | Type | What it does |
@@ -37,7 +43,7 @@ Add only the scopes your scenarios need:
 | Scope | Needed for |
 | --- | --- |
 | `accounts:read` | The connection check, List Connected Accounts, the account list in Send a Message |
-| `messages:send` | Send a Message |
+| `messages:send` | Send a Message, Create a Post |
 | `messages:read` | Get a Message |
 | `ai:use` | Create a Chat Completion, List AI Models, Test AI Completion |
 

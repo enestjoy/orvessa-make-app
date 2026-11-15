@@ -6,6 +6,8 @@ All notable changes to the Orvessa app for Make. Versions follow the app version
 
 ### Added
 
+- **Create a Post**: public posts on Bluesky, Mastodon, LinkedIn and X, with an account list
+  of the accounts that can post (from Orvessa's capability discovery).
 - **Create a Chat Completion**: system, user and assistant messages, maximum tokens and
   temperature; returns the answer, finish reason, model and token usage.
 - Account and model lists (RPCs `rpcAccounts`, `rpcAiModels`) for Send a Message, Create a

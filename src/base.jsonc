@@ -42,7 +42,7 @@
                 // PROVIDER_ERROR: the messaging service or AI provider refused the request.
                 // Retrying the same request does not help, so it is not a ConnectionError.
                 "type": "RuntimeError",
-                "message": "[502] The connected service refused the request. In an AI module, the model is usually no longer offered by its provider: pick one from List AI Models. In a messaging module, check that the account is connected."
+                "message": "[502] The connected service refused the request. In an AI module, the model is usually no longer offered by its provider: pick one from List AI Models. In a messaging module, check that the account is connected. In Create a Post, the network refused the post: check the account's API access (X needs a plan or credits that allow posting) and that the text is not a duplicate of a recent post."
             },
             "503": {
                 "message": "[503] Orvessa or the connected service is unavailable for the moment. Make retries the module later."

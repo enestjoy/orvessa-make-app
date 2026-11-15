@@ -79,6 +79,8 @@ The option lists (RPCs) can be run on their own through the Make API or MCP
 | Send a Message, then Get a Message: Telegram (`+phone`) | `pending`, then `sent` |
 | Send a Message: Bluesky (`@enestjoy.bsky.social`) | `failed`, `error_code` `invalid_message`; probably a message to the account itself |
 | Send a Message, then Get a Message: Mastodon (`@user@mastodon.social`) | `pending`, then `sent` (direct post) |
+| Create a Post: Bluesky, Mastodon, LinkedIn | Published; ID and URL returned (LinkedIn returns the post URN, no URL) |
+| Create a Post: X | `[502]`: X refused the post; the reason is not passed on by Orvessa (plan or credits, expired token or duplicate text) |
 | Create a Chat Completion, every provider (2026-11-15, all-scope key) | Groq, Gemini, GitHub, Codex and an OpenRouter free model answered; `openrouter/google/gemma-4-31b-it:free` was unavailable (502) at that moment |
 
 Sending is asynchronous: Send a Message succeeds when Orvessa queues the message. A message
