@@ -5,5 +5,9 @@
         "type": "text",
         "help": "Use this value as the model in Create a Chat Completion, for example groq/openai/gpt-oss-20b."
     },
-    { "name": "provider", "label": "Provider", "type": "text" }
+    {
+        "name": "provider",
+        "label": "Provider",
+        "type": "text"
+    }
 ]

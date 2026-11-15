@@ -5,14 +5,38 @@
         "type": "select",
         "help": "Only accounts in this state. Leave empty for all.",
         "options": [
-            { "label": "Connected", "value": "connected" },
-            { "label": "Connecting", "value": "connecting" },
-            { "label": "Pending", "value": "pending" },
-            { "label": "Sign-in required", "value": "auth_required" },
-            { "label": "Degraded", "value": "degraded" },
-            { "label": "Expired", "value": "expired" },
-            { "label": "Disconnected", "value": "disconnected" },
-            { "label": "Error", "value": "error" }
+            {
+                "label": "Connected",
+                "value": "connected"
+            },
+            {
+                "label": "Connecting",
+                "value": "connecting"
+            },
+            {
+                "label": "Pending",
+                "value": "pending"
+            },
+            {
+                "label": "Sign-in required",
+                "value": "auth_required"
+            },
+            {
+                "label": "Degraded",
+                "value": "degraded"
+            },
+            {
+                "label": "Expired",
+                "value": "expired"
+            },
+            {
+                "label": "Disconnected",
+                "value": "disconnected"
+            },
+            {
+                "label": "Error",
+                "value": "error"
+            }
         ]
     },
     {

@@ -1,5 +1,9 @@
 [
-    { "name": "id", "label": "Message ID", "type": "text" },
+    {
+        "name": "id",
+        "label": "Message ID",
+        "type": "text"
+    },
     {
         "name": "status",
         "label": "Status",
@@ -12,19 +16,51 @@
         "type": "text",
         "help": "Why the message failed, for example account_not_connected. Empty otherwise."
     },
-    { "name": "account_id", "label": "Account ID", "type": "text" },
-    { "name": "conversation_id", "label": "Conversation ID", "type": "text" },
-    { "name": "direction", "label": "Direction", "type": "text" },
-    { "name": "type", "label": "Type", "type": "text" },
-    { "name": "text", "label": "Text", "type": "text" },
+    {
+        "name": "account_id",
+        "label": "Account ID",
+        "type": "text"
+    },
+    {
+        "name": "conversation_id",
+        "label": "Conversation ID",
+        "type": "text"
+    },
+    {
+        "name": "direction",
+        "label": "Direction",
+        "type": "text"
+    },
+    {
+        "name": "type",
+        "label": "Type",
+        "type": "text"
+    },
+    {
+        "name": "text",
+        "label": "Text",
+        "type": "text"
+    },
     {
         "name": "sender",
         "label": "Sender",
         "type": "collection",
         "spec": [
-            { "name": "id", "label": "Contact ID", "type": "text" },
-            { "name": "handle", "label": "Phone number", "type": "text" },
-            { "name": "display_name", "label": "Name", "type": "text" }
+            {
+                "name": "id",
+                "label": "Contact ID",
+                "type": "text"
+            },
+            {
+                "name": "handle",
+                "label": "Phone number",
+                "type": "text"
+            },
+            {
+                "name": "display_name",
+                "label": "Name",
+                "type": "text"
+            }
         ]
     },
     {
@@ -34,15 +70,47 @@
         "spec": {
             "type": "collection",
             "spec": [
-                { "name": "id", "label": "Attachment ID", "type": "text" },
-                { "name": "mime_type", "label": "MIME type", "type": "text" },
-                { "name": "file_name", "label": "File name", "type": "text" },
-                { "name": "size_bytes", "label": "Size (bytes)", "type": "uinteger" },
-                { "name": "status", "label": "Status", "type": "text" },
-                { "name": "reason", "label": "Reason", "type": "text" }
+                {
+                    "name": "id",
+                    "label": "Attachment ID",
+                    "type": "text"
+                },
+                {
+                    "name": "mime_type",
+                    "label": "MIME type",
+                    "type": "text"
+                },
+                {
+                    "name": "file_name",
+                    "label": "File name",
+                    "type": "text"
+                },
+                {
+                    "name": "size_bytes",
+                    "label": "Size (bytes)",
+                    "type": "uinteger"
+                },
+                {
+                    "name": "status",
+                    "label": "Status",
+                    "type": "text"
+                },
+                {
+                    "name": "reason",
+                    "label": "Reason",
+                    "type": "text"
+                }
             ]
         }
     },
-    { "name": "sent_at", "label": "Sent at", "type": "date" },
-    { "name": "created_at", "label": "Created at", "type": "date" }
+    {
+        "name": "sent_at",
+        "label": "Sent at",
+        "type": "date"
+    },
+    {
+        "name": "created_at",
+        "label": "Created at",
+        "type": "date"
+    }
 ]

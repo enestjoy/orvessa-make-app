@@ -21,9 +21,18 @@
                 "required": true,
                 "default": "user",
                 "options": [
-                    { "label": "System", "value": "system" },
-                    { "label": "User", "value": "user" },
-                    { "label": "Assistant", "value": "assistant" }
+                    {
+                        "label": "System",
+                        "value": "system"
+                    },
+                    {
+                        "label": "User",
+                        "value": "user"
+                    },
+                    {
+                        "label": "Assistant",
+                        "value": "assistant"
+                    }
                 ]
             },
             {
