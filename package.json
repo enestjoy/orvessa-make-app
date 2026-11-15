@@ -1,0 +1,17 @@
+{
+  "name": "orvessa-make-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Source of the Orvessa custom app for Make (make.com): connection, modules and RPCs, kept in sync with Make through its API.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "pull": "node scripts/make-app.mjs pull",
+    "push": "node scripts/make-app.mjs push",
+    "push:dry": "node scripts/make-app.mjs push --dry-run",
+    "validate": "node scripts/make-app.mjs validate",
+    "test": "node --test scripts/"
+  }
+}

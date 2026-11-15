@@ -1,0 +1,8 @@
+{
+    "$comment": "Which Make custom app this repository holds. The API token goes in .env, never here.",
+    "zone": "eu2.make.com",
+    "app": {
+        "name": "orvessa-1l9fdr",
+        "version": 1
+    }
+}
