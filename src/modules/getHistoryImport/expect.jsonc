@@ -1,0 +1,17 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpcAllAccounts",
+        "required": true,
+        "help": "The connected account."
+    },
+    {
+        "name": "import_id",
+        "label": "Import ID",
+        "type": "text",
+        "required": true,
+        "help": "The `Import ID` that Import Message History returned."
+    }
+]

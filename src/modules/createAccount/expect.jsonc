@@ -1,0 +1,37 @@
+[
+    {
+        "name": "provider",
+        "label": "Provider",
+        "type": "select",
+        "options": "rpc://rpcProviders",
+        "required": true
+    },
+    {
+        "name": "display_name",
+        "label": "Name",
+        "type": "text",
+        "help": "How the account is shown in Orvessa and in Make, for example `Sales line`."
+    },
+    {
+        "name": "expires_in_seconds",
+        "label": "Link valid for (seconds)",
+        "type": "uinteger",
+        "help": "Leave empty for Orvessa's default."
+    },
+    {
+        "name": "reference",
+        "label": "Reference",
+        "type": "text",
+        "help": "Your own ID for this person or customer; it comes back in the `account.connected` event."
+    },
+    {
+        "name": "success_url",
+        "label": "Return URL after success",
+        "type": "url"
+    },
+    {
+        "name": "failure_url",
+        "label": "Return URL after failure",
+        "type": "url"
+    }
+]

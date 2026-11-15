@@ -1,0 +1,89 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpc://rpcAccounts",
+        "required": true,
+        "help": "The connected messaging account that sends the file."
+    },
+    {
+        "name": "recipient",
+        "label": "Send to",
+        "type": "select",
+        "required": true,
+        "default": "phone",
+        "options": [
+            {
+                "label": "A person (phone number or username)",
+                "value": "phone",
+                "nested": [
+                    {
+                        "name": "to",
+                        "label": "Recipient",
+                        "type": "text",
+                        "required": true,
+                        "validate": {
+                            "max": 32
+                        },
+                        "help": "WhatsApp: `+40711111111`. Telegram: `@username` or `+40711111111`."
+                    }
+                ]
+            },
+            {
+                "label": "An existing conversation",
+                "value": "conversation",
+                "nested": [
+                    {
+                        "name": "conversation_id",
+                        "label": "Conversation",
+                        "type": "select",
+                        "options": "rpc://rpcConversations",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "file_name",
+        "label": "File name",
+        "type": "filename",
+        "required": true,
+        "semantic": "file:name",
+        "help": "With its extension, for example `invoice.pdf`."
+    },
+    {
+        "name": "data",
+        "label": "Data",
+        "type": "buffer",
+        "required": true,
+        "semantic": "file:data"
+    },
+    {
+        "name": "mime_type",
+        "label": "MIME type",
+        "type": "text",
+        "help": "For example `application/pdf` or `image/jpeg`. Leave empty to send it as `application/octet-stream`.",
+        "advanced": true
+    },
+    {
+        "name": "caption",
+        "label": "Caption",
+        "type": "text",
+        "multiline": true,
+        "validate": {
+            "max": 4096
+        }
+    },
+    {
+        "name": "idempotency_key",
+        "label": "Idempotency key",
+        "type": "text",
+        "required": true,
+        "validate": {
+            "max": 255
+        },
+        "help": "A value unique to this file, without spaces, for example the ID of the record that triggers the scenario. If the module runs again with the same key, Orvessa does not do it twice."
+    }
+]

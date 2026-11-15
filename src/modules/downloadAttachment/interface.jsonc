@@ -1,0 +1,24 @@
+[
+    {
+        "name": "file_name",
+        "label": "File name",
+        "type": "filename",
+        "semantic": "file:name"
+    },
+    {
+        "name": "data",
+        "label": "Data",
+        "type": "buffer",
+        "semantic": "file:data"
+    },
+    {
+        "name": "mime_type",
+        "label": "MIME type",
+        "type": "text"
+    },
+    {
+        "name": "size_bytes",
+        "label": "Size (bytes)",
+        "type": "uinteger"
+    }
+]

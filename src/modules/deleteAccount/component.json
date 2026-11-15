@@ -1,0 +1,10 @@
+{
+    "name": "deleteAccount",
+    "label": "Delete an Account",
+    "description": "Disconnects an account and deletes it from Orvessa, with its conversations and messages. This cannot be undone.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "delete"
+}

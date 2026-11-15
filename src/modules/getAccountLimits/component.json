@@ -1,0 +1,10 @@
+{
+    "name": "getAccountLimits",
+    "label": "Get Account Limits",
+    "description": "Returns the sending limits of an account and how much of them the last 24 hours used.",
+    "typeId": 9,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "read"
+}

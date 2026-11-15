@@ -1,0 +1,51 @@
+[
+    {
+        "name": "events",
+        "label": "Events",
+        "type": "select",
+        "multiple": true,
+        "required": true,
+        "default": [
+            "message.received"
+        ],
+        "options": [
+            {
+                "label": "New message received",
+                "value": "message.received"
+            },
+            {
+                "label": "Sent message changed status (sent, delivered, read, failed)",
+                "value": "message.updated"
+            },
+            {
+                "label": "Sent message delivered",
+                "value": "message.delivered"
+            },
+            {
+                "label": "Sent message read",
+                "value": "message.read"
+            },
+            {
+                "label": "Sent message failed",
+                "value": "message.failed"
+            }
+        ],
+        "help": "Delivered and read are reported only by services with receipts (WhatsApp)."
+    },
+    {
+        "name": "account_ids",
+        "label": "Accounts",
+        "type": "select",
+        "multiple": true,
+        "options": "rpc://rpcAccounts",
+        "help": "Only messages of these accounts. Leave empty for every account."
+    },
+    {
+        "name": "skip_catch_up",
+        "label": "Skip recovered and imported messages",
+        "type": "boolean",
+        "default": true,
+        "required": true,
+        "help": "Messages Orvessa saw more than 5 minutes late (after an interruption or a history import) are left out. Keep this on for auto-replies and alerts."
+    }
+]

@@ -1,0 +1,16 @@
+{
+    "url": "/accounts/{{encodeURL(parameters.account_id)}}/operations/{{encodeURL(parameters.operation)}}",
+    "method": "POST",
+    "type": "json",
+    "headers": {
+        "Idempotency-Key": "{{parameters.idempotency_key}}"
+    },
+    "body": "{{parseJSON(ifempty(parameters.input, '{}'))}}",
+    "response": {
+        "output": {
+            "operation": "{{body.operation}}",
+            "result": "{{body.result}}",
+            "status_code": "{{statusCode}}"
+        }
+    }
+}

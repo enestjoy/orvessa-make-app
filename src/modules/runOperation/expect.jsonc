@@ -1,0 +1,34 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpcAllAccounts",
+        "required": true,
+        "help": "The connected account."
+    },
+    {
+        "name": "operation",
+        "label": "Operation",
+        "type": "select",
+        "options": "rpc://rpcOperations",
+        "required": true,
+        "help": "What this account can do, from its capability list."
+    },
+    {
+        "name": "input",
+        "label": "Input (JSON)",
+        "type": "text",
+        "multiline": true,
+        "help": "The operation's input as a JSON object, for example `{\"to\": \"+40711111111\", \"text\": \"Hi\"}`. Leave empty for `{}`."
+    },
+    {
+        "name": "idempotency_key",
+        "label": "Idempotency key",
+        "type": "text",
+        "validate": {
+            "max": 255
+        },
+        "help": "Required for operations that change something outside Orvessa (send, create, publish); retrying with the same key does the work once."
+    }
+]

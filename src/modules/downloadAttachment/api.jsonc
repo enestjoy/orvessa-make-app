@@ -1,0 +1,24 @@
+[
+    {
+        "url": "/attachments/{{encodeURL(parameters.attachment_id)}}",
+        "method": "GET",
+        "response": {
+            "temp": {
+                "meta": "{{body}}"
+            }
+        }
+    },
+    {
+        "url": "/attachments/{{encodeURL(parameters.attachment_id)}}/content",
+        "method": "GET",
+        "response": {
+            "type": "binary",
+            "output": {
+                "file_name": "{{ifempty(temp.meta.file_name, temp.meta.id)}}",
+                "data": "{{body}}",
+                "mime_type": "{{temp.meta.mime_type}}",
+                "size_bytes": "{{temp.meta.size_bytes}}"
+            }
+        }
+    }
+]

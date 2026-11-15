@@ -1,0 +1,23 @@
+[
+    {
+        "name": "id",
+        "label": "Link ID",
+        "type": "text"
+    },
+    {
+        "name": "url",
+        "label": "Connect URL",
+        "type": "url",
+        "help": "Send this link to the account's owner: the page shows the QR code, pairing code or sign-in."
+    },
+    {
+        "name": "expires_at",
+        "label": "Expires at",
+        "type": "date"
+    },
+    {
+        "name": "reference",
+        "label": "Reference",
+        "type": "text"
+    }
+]

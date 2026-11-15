@@ -1,0 +1,25 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpc://rpcAccounts",
+        "required": true,
+        "help": "The account the conversation belongs to."
+    },
+    {
+        "name": "conversation_id",
+        "label": "Conversation",
+        "type": "select",
+        "options": "rpc://rpcConversations",
+        "required": true
+    },
+    {
+        "name": "limit",
+        "label": "Limit",
+        "type": "uinteger",
+        "default": 20,
+        "required": true,
+        "help": "The most messages to return."
+    }
+]

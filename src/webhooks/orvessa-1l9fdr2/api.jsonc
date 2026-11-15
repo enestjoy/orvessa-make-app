@@ -1,0 +1,14 @@
+{
+    "output": {
+        "event_id": "{{body.id}}",
+        "event_type": "{{body.type}}",
+        "event_created_at": "{{body.created_at}}",
+        "account": "{{body.data.account}}",
+        "previous_status": "{{body.data.previous_status}}",
+        "reference": "{{body.data.reference}}",
+        "link_id": "{{body.data.link_id}}",
+        "reconnected": "{{body.data.reconnected}}",
+        "sync": "{{body.data.sync}}",
+        "email": "{{body.data.email}}"
+    }
+}

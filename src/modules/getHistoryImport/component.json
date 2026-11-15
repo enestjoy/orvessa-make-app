@@ -1,0 +1,10 @@
+{
+    "name": "getHistoryImport",
+    "label": "Get a History Import",
+    "description": "Returns the progress of a history import.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "read"
+}

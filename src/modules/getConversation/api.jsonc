@@ -1,0 +1,7 @@
+{
+    "url": "/conversations/{{encodeURL(parameters.conversation_id)}}",
+    "method": "GET",
+    "response": {
+        "output": "{{body}}"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "url": "/accounts/{{encodeURL(parameters.account_id)}}/sync",
+    "method": "POST",
+    "type": "json",
+    "body": {
+        "since": "{{parameters.since}}",
+        "max_conversations": "{{parameters.max_conversations}}",
+        "max_messages_per_conversation": "{{parameters.max_messages_per_conversation}}",
+        "sync_id": "{{parameters.sync_id}}"
+    },
+    "response": {
+        "output": "{{body}}"
+    }
+}

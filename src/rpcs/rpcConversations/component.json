@@ -1,0 +1,6 @@
+{
+    "name": "rpcConversations",
+    "label": "Conversations of the chosen account",
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null
+}

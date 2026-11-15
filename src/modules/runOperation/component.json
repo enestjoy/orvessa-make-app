@@ -1,0 +1,10 @@
+{
+    "name": "runOperation",
+    "label": "Run an Operation",
+    "description": "Runs any operation a connected account declares (for example e-mail, calendar, GitHub, Cloudflare or Telegram bot operations).",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": null
+}

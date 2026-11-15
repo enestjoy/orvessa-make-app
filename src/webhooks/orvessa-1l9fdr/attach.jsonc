@@ -1,0 +1,17 @@
+{
+    // Registers this webhook's URL in Orvessa (needs the webhooks:manage scope).
+    "url": "/webhooks",
+    "method": "POST",
+    "body": {
+        "url": "{{webhook.url}}",
+        "description": "Make: Watch Messages",
+        "events": "{{parameters.events}}",
+        "account_ids": "{{if(length(parameters.account_ids) > 0, parameters.account_ids, undefined)}}"
+    },
+    "response": {
+        "data": {
+            "externalHookId": "{{body.id}}",
+            "skipCatchUp": "{{parameters.skip_catch_up}}"
+        }
+    }
+}

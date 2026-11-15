@@ -1,0 +1,19 @@
+{
+    "id": "e7d65423-deba-4a8d-8089-3a6db70d1839",
+    "display_name": "Support line",
+    "provider": "whatsapp",
+    "type": "messaging",
+    "status": "pending",
+    "status_reason": null,
+    "status_message": "Connected and working.",
+    "next_step": "connect",
+    "scope_id": null,
+    "created_at": "2026-11-10T08:00:00.000Z",
+    "updated_at": "2026-11-15T09:00:00.000Z",
+    "connect_link": {
+        "id": "c0ffee00-1111-4222-8333-444455556666",
+        "url": "https://orvessa.uk/connect/abc123",
+        "expires_at": "2026-11-16T10:00:00.000Z",
+        "reference": "customer-42"
+    }
+}

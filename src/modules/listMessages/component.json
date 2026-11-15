@@ -1,0 +1,10 @@
+{
+    "name": "listMessages",
+    "label": "List Messages in a Conversation",
+    "description": "Returns the messages of a conversation, newest first (the chat history).",
+    "typeId": 9,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "read"
+}

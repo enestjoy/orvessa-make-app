@@ -1,0 +1,8 @@
+[
+    {
+        "name": "conversation_id",
+        "label": "Conversation ID",
+        "type": "text",
+        "required": true
+    }
+]

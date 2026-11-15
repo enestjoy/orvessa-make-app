@@ -1,0 +1,180 @@
+[
+    {
+        "name": "event_id",
+        "label": "Event ID",
+        "type": "text",
+        "help": "Stays the same if Orvessa delivers the event again; use it to skip duplicates."
+    },
+    {
+        "name": "event_type",
+        "label": "Event type",
+        "type": "text"
+    },
+    {
+        "name": "event_created_at",
+        "label": "Event time",
+        "type": "date"
+    },
+    {
+        "name": "account",
+        "label": "Account",
+        "type": "collection",
+        "spec": [
+            {
+                "name": "id",
+                "label": "Account ID",
+                "type": "text"
+            },
+            {
+                "name": "display_name",
+                "label": "Name",
+                "type": "text"
+            },
+            {
+                "name": "provider",
+                "label": "Provider",
+                "type": "text"
+            },
+            {
+                "name": "type",
+                "label": "Type",
+                "type": "text",
+                "help": "messaging, ai or productivity."
+            },
+            {
+                "name": "status",
+                "label": "Status",
+                "type": "text"
+            },
+            {
+                "name": "status_reason",
+                "label": "Status reason",
+                "type": "text"
+            },
+            {
+                "name": "status_message",
+                "label": "Status message",
+                "type": "text"
+            },
+            {
+                "name": "next_step",
+                "label": "Next step",
+                "type": "text",
+                "help": "none, connect, wait or reconnect."
+            },
+            {
+                "name": "scope_id",
+                "label": "Scope ID",
+                "type": "text"
+            },
+            {
+                "name": "created_at",
+                "label": "Created at",
+                "type": "date"
+            },
+            {
+                "name": "updated_at",
+                "label": "Updated at",
+                "type": "date"
+            }
+        ]
+    },
+    {
+        "name": "previous_status",
+        "label": "Previous status",
+        "type": "text"
+    },
+    {
+        "name": "reference",
+        "label": "Connect link reference",
+        "type": "text"
+    },
+    {
+        "name": "link_id",
+        "label": "Connect link ID",
+        "type": "text"
+    },
+    {
+        "name": "reconnected",
+        "label": "Reconnected",
+        "type": "boolean"
+    },
+    {
+        "name": "sync",
+        "label": "History import",
+        "type": "collection",
+        "spec": [
+            {
+                "name": "id",
+                "label": "Import ID",
+                "type": "text"
+            },
+            {
+                "name": "account_id",
+                "label": "Account ID",
+                "type": "text"
+            },
+            {
+                "name": "sync_id",
+                "label": "Your import ID",
+                "type": "text"
+            },
+            {
+                "name": "status",
+                "label": "Status",
+                "type": "text",
+                "help": "queued, running, completed or failed."
+            },
+            {
+                "name": "since",
+                "label": "Since",
+                "type": "date"
+            },
+            {
+                "name": "max_conversations",
+                "label": "Maximum conversations",
+                "type": "uinteger"
+            },
+            {
+                "name": "max_messages_per_conversation",
+                "label": "Maximum messages per conversation",
+                "type": "uinteger"
+            },
+            {
+                "name": "conversations_done",
+                "label": "Conversations done",
+                "type": "uinteger"
+            },
+            {
+                "name": "messages_imported",
+                "label": "Messages imported",
+                "type": "uinteger"
+            },
+            {
+                "name": "error_code",
+                "label": "Error code",
+                "type": "text"
+            },
+            {
+                "name": "created_at",
+                "label": "Created at",
+                "type": "date"
+            },
+            {
+                "name": "started_at",
+                "label": "Started at",
+                "type": "date"
+            },
+            {
+                "name": "finished_at",
+                "label": "Finished at",
+                "type": "date"
+            }
+        ]
+    },
+    {
+        "name": "email",
+        "label": "E-mail",
+        "type": "any"
+    }
+]

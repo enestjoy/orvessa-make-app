@@ -1,0 +1,10 @@
+{
+    "name": "watchMessages",
+    "label": "Watch Messages",
+    "description": "Triggers when a message arrives, or when a message you sent changes status.",
+    "typeId": 10,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": "orvessa-1l9fdr",
+    "crud": null
+}

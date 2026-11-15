@@ -1,0 +1,8 @@
+{
+    "operation": "messages.send_text",
+    "result": {
+        "id": "0b6f6f3e-2c1d-4a8e-9b51-7d0c2f9a1e44",
+        "status": "pending"
+    },
+    "status_code": 202
+}

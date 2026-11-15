@@ -1,0 +1,32 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpc://rpcAccounts",
+        "required": true,
+        "help": "The messaging account. Its provider must support history import."
+    },
+    {
+        "name": "since",
+        "label": "Since",
+        "type": "date",
+        "help": "Import messages from this date on. Leave empty for Orvessa's default."
+    },
+    {
+        "name": "max_conversations",
+        "label": "Maximum conversations",
+        "type": "uinteger"
+    },
+    {
+        "name": "max_messages_per_conversation",
+        "label": "Maximum messages per conversation",
+        "type": "uinteger"
+    },
+    {
+        "name": "sync_id",
+        "label": "Your import ID",
+        "type": "text",
+        "help": "Your own ID for this import; importing again with the same ID returns the same import."
+    }
+]

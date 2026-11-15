@@ -1,0 +1,68 @@
+[
+    {
+        "name": "id",
+        "label": "Account ID",
+        "type": "text"
+    },
+    {
+        "name": "display_name",
+        "label": "Name",
+        "type": "text"
+    },
+    {
+        "name": "provider",
+        "label": "Provider",
+        "type": "text"
+    },
+    {
+        "name": "type",
+        "label": "Type",
+        "type": "text",
+        "help": "messaging, ai or productivity."
+    },
+    {
+        "name": "status",
+        "label": "Status",
+        "type": "text"
+    },
+    {
+        "name": "status_reason",
+        "label": "Status reason",
+        "type": "text"
+    },
+    {
+        "name": "status_message",
+        "label": "Status message",
+        "type": "text"
+    },
+    {
+        "name": "next_step",
+        "label": "Next step",
+        "type": "text",
+        "help": "none, connect, wait or reconnect."
+    },
+    {
+        "name": "scope_id",
+        "label": "Scope ID",
+        "type": "text"
+    },
+    {
+        "name": "created_at",
+        "label": "Created at",
+        "type": "date"
+    },
+    {
+        "name": "updated_at",
+        "label": "Updated at",
+        "type": "date"
+    },
+    {
+        "name": "connect_methods",
+        "label": "Connect methods",
+        "type": "array",
+        "spec": {
+            "type": "text"
+        },
+        "help": "connect.qr, connect.pairing_code, connect.oauth, history.sync and others."
+    }
+]

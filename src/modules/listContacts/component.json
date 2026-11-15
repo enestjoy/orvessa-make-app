@@ -1,0 +1,10 @@
+{
+    "name": "listContacts",
+    "label": "List Contacts",
+    "description": "Returns the people an account has exchanged messages with, newest first.",
+    "typeId": 9,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "read"
+}

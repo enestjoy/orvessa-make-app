@@ -1,0 +1,21 @@
+{
+    "url": "/accounts",
+    "method": "GET",
+    "qs": {
+        "limit": 100
+    },
+    "response": {
+        "limit": 500,
+        "iterate": "{{body.items}}",
+        "output": {
+            "label": "{{ifempty(item.display_name, item.id) + ' (' + item.provider + ', ' + item.status + ')'}}",
+            "value": "{{item.id}}"
+        }
+    },
+    "pagination": {
+        "qs": {
+            "cursor": "{{body.next_cursor}}"
+        },
+        "condition": "{{body.next_cursor}}"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "id": "3c2b1a09-8f7e-4d6c-b5a4-938271605f4e",
+    "account_id": "e7d65423-deba-4a8d-8089-3a6db70d1839",
+    "sync_id": "crm-import-1",
+    "status": "queued",
+    "since": "2026-10-01T00:00:00.000Z",
+    "max_conversations": 50,
+    "max_messages_per_conversation": 100,
+    "conversations_done": 0,
+    "messages_imported": 0,
+    "error_code": null,
+    "created_at": "2026-11-15T10:00:00.000Z",
+    "started_at": null,
+    "finished_at": null
+}

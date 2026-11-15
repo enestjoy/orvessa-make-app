@@ -1,0 +1,10 @@
+{
+    "name": "createAccount",
+    "label": "Create an Account",
+    "description": "Creates an account and returns a link where its owner connects it (QR code, pairing code or sign-in).",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "create"
+}

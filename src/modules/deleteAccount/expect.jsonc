@@ -1,0 +1,10 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpc://rpcAllAccounts",
+        "required": true,
+        "help": "The account to delete. Everything Orvessa stored for it is deleted."
+    }
+]

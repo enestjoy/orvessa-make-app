@@ -1,0 +1,85 @@
+[
+    {
+        "name": "url",
+        "label": "URL",
+        "type": "text",
+        "required": true,
+        "help": "Enter a path relative to `https://orvessa.uk/v1`. For example: `/accounts`"
+    },
+    {
+        "name": "method",
+        "label": "Method",
+        "type": "select",
+        "required": true,
+        "default": "GET",
+        "options": [
+            {
+                "label": "GET",
+                "value": "GET"
+            },
+            {
+                "label": "POST",
+                "value": "POST"
+            },
+            {
+                "label": "PUT",
+                "value": "PUT"
+            },
+            {
+                "label": "PATCH",
+                "value": "PATCH"
+            },
+            {
+                "label": "DELETE",
+                "value": "DELETE"
+            }
+        ]
+    },
+    {
+        "name": "headers",
+        "label": "Headers",
+        "type": "array",
+        "spec": [
+            {
+                "name": "key",
+                "label": "Key",
+                "type": "text"
+            },
+            {
+                "name": "value",
+                "label": "Value",
+                "type": "text"
+            }
+        ],
+        "default": [
+            {
+                "key": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "help": "You don't have to add the authorization header; the connection adds it. Add `Idempotency-Key` for calls that send or create."
+    },
+    {
+        "name": "qs",
+        "label": "Query String",
+        "type": "array",
+        "spec": [
+            {
+                "name": "key",
+                "label": "Key",
+                "type": "text"
+            },
+            {
+                "name": "value",
+                "label": "Value",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "name": "body",
+        "label": "Body",
+        "type": "any",
+        "help": "The request body, usually JSON. See the API reference: https://orvessa.uk/docs"
+    }
+]

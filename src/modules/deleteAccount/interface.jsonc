@@ -1,0 +1,12 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account ID",
+        "type": "text"
+    },
+    {
+        "name": "deleted",
+        "label": "Deleted",
+        "type": "boolean"
+    }
+]

@@ -1,0 +1,10 @@
+{
+    "name": "createConnectLink",
+    "label": "Create a Connect Link",
+    "description": "Creates a new link where the account's owner connects or reconnects it; earlier links stop working.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "create"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "getAccount",
+    "label": "Get an Account",
+    "description": "Returns an account with its live connection state and what it supports.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "read"
+}

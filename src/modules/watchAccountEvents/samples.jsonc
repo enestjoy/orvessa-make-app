@@ -1,0 +1,19 @@
+{
+    "event_id": "evt_01JD3KA7QZ",
+    "event_type": "account.connection.updated",
+    "event_created_at": "2026-11-15T10:00:00.000Z",
+    "account": {
+        "id": "e7d65423-deba-4a8d-8089-3a6db70d1839",
+        "display_name": "Support line",
+        "provider": "whatsapp",
+        "type": "messaging",
+        "status": "connected",
+        "status_reason": null,
+        "status_message": "Connected and working.",
+        "next_step": "none",
+        "scope_id": null,
+        "created_at": "2026-11-10T08:00:00.000Z",
+        "updated_at": "2026-11-15T09:00:00.000Z"
+    },
+    "previous_status": "connecting"
+}

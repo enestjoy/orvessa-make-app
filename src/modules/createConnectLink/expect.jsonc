@@ -1,0 +1,32 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpcAllAccounts",
+        "required": true,
+        "help": "The connected account."
+    },
+    {
+        "name": "expires_in_seconds",
+        "label": "Link valid for (seconds)",
+        "type": "uinteger",
+        "help": "Leave empty for Orvessa's default."
+    },
+    {
+        "name": "reference",
+        "label": "Reference",
+        "type": "text",
+        "help": "Your own ID for this person or customer; it comes back in the `account.connected` event."
+    },
+    {
+        "name": "success_url",
+        "label": "Return URL after success",
+        "type": "url"
+    },
+    {
+        "name": "failure_url",
+        "label": "Return URL after failure",
+        "type": "url"
+    }
+]

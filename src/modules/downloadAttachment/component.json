@@ -1,0 +1,10 @@
+{
+    "name": "downloadAttachment",
+    "label": "Download an Attachment",
+    "description": "Downloads a file that came with a message, ready to pass to another module.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "read"
+}

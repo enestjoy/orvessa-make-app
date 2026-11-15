@@ -240,7 +240,16 @@ async function push({ dryRun, force }) {
       const meta = JSON.parse(readFileSync(join(dir, "component.json"), "utf8"));
       if (!remote.has(name)) {
         say(`create ${kind}/${name}`);
-        if (!dryRun) await make.json("POST", spec.create, { body: meta });
+        if (!dryRun) {
+          const created = await make.json("POST", spec.create, { body: meta });
+          // Make names connections and webhooks itself (app name, then a number).
+          const actual = Object.values(created ?? {}).find((v) => v?.name)?.name;
+          if (actual && actual !== name) {
+            throw new Error(
+              `Make created ${kind}/${actual}, not ${name}. Rename src/${kind}/${name} to ${actual} (and the references to it), then push again.`,
+            );
+          }
+        }
       } else {
         const current = await details(make, spec, remote.get(name));
         const changed = Object.fromEntries(

@@ -1,0 +1,14 @@
+{
+    "url": "/providers",
+    "method": "GET",
+    "response": {
+        "iterate": {
+            "container": "{{body.items}}",
+            "condition": "{{item.available}}"
+        },
+        "output": {
+            "label": "{{item.id + ' (' + item.type + ')'}}",
+            "value": "{{item.id}}"
+        }
+    }
+}

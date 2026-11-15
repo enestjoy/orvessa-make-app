@@ -1,0 +1,42 @@
+[
+    {
+        // 1. Upload: the body is the file itself.
+        "url": "/accounts/{{encodeURL(parameters.account_id)}}/attachments",
+        "method": "POST",
+        "type": "binary",
+        "headers": {
+            "Content-Type": "{{ifempty(parameters.mime_type, 'application/octet-stream')}}",
+            "X-File-Name": "{{encodeURL(parameters.file_name)}}"
+        },
+        "body": "{{parameters.data}}",
+        "response": {
+            "temp": {
+                "attachment": "{{body}}"
+            }
+        }
+    },
+    {
+        // 2. Send the uploaded file.
+        "url": "/messages",
+        "method": "POST",
+        "type": "json",
+        "headers": {
+            "Idempotency-Key": "{{parameters.idempotency_key}}"
+        },
+        "body": {
+            "account_id": "{{parameters.account_id}}",
+            "to": "{{parameters.to}}",
+            "conversation_id": "{{parameters.conversation_id}}",
+            "attachment_id": "{{temp.attachment.id}}",
+            "text": "{{parameters.caption}}"
+        },
+        // The queued message lists its attachments only once it is processed, so the
+        // uploaded file is returned on its own as well (map its ID to Download an Attachment).
+        "response": {
+            "output": {
+                "{{...}}": "{{body}}",
+                "attachment": "{{temp.attachment}}"
+            }
+        }
+    }
+]

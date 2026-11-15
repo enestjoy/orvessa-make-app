@@ -1,0 +1,21 @@
+{
+    "url": "/accounts",
+    "method": "POST",
+    "type": "json",
+    "body": {
+        "provider": "{{parameters.provider}}",
+        "display_name": "{{parameters.display_name}}",
+        "connect": {
+            "expires_in_seconds": "{{parameters.expires_in_seconds}}",
+            "reference": "{{parameters.reference}}",
+            "success_url": "{{parameters.success_url}}",
+            "failure_url": "{{parameters.failure_url}}"
+        }
+    },
+    "response": {
+        "output": {
+            "{{...}}": "{{body.account}}",
+            "connect_link": "{{body.connect}}"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "key": "messages.per_day",
+    "value": 300,
+    "default": 300,
+    "min": 1,
+    "max": 5000,
+    "overridden": false,
+    "source": "default",
+    "warmup": null,
+    "used": 12,
+    "remaining": 288,
+    "resets_in_seconds": 51840
+}

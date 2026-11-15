@@ -1,0 +1,10 @@
+{
+    "name": "getConversation",
+    "label": "Get a Conversation",
+    "description": "Returns a conversation and the person or group it is with.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "read"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "watchAccountEvents",
+    "label": "Watch Account Events",
+    "description": "Triggers when an account changes status or finishes connecting, a history import ends, or an e-mail arrives.",
+    "typeId": 10,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": "orvessa-1l9fdr2",
+    "crud": null
+}

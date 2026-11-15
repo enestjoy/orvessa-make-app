@@ -1,0 +1,10 @@
+{
+    "name": "sendFile",
+    "label": "Send a File",
+    "description": "Uploads a file and sends it through a connected account, with an optional caption.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "create"
+}

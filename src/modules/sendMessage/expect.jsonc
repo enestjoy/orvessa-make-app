@@ -36,10 +36,11 @@
                 "nested": [
                     {
                         "name": "conversation_id",
-                        "label": "Conversation ID",
-                        "type": "text",
+                        "label": "Conversation",
+                        "type": "select",
+                        "options": "rpc://rpcConversations",
                         "required": true,
-                        "help": "The `Conversation ID` of an earlier message of the same account."
+                        "help": "A conversation of the chosen account. In mapping mode, map the `Conversation ID` of a message, for example from Watch Messages to reply."
                     }
                 ]
             }

@@ -1,0 +1,47 @@
+[
+    {
+        "name": "events",
+        "label": "Events",
+        "type": "select",
+        "multiple": true,
+        "required": true,
+        "default": [
+            "account.connection.updated",
+            "account.connected"
+        ],
+        "options": [
+            {
+                "label": "Account changed status",
+                "value": "account.connection.updated"
+            },
+            {
+                "label": "Account connected (connect link finished)",
+                "value": "account.connected"
+            },
+            {
+                "label": "History import completed",
+                "value": "account.sync_completed"
+            },
+            {
+                "label": "History import failed",
+                "value": "account.sync_failed"
+            },
+            {
+                "label": "New e-mail received",
+                "value": "email.received"
+            },
+            {
+                "label": "E-mail bounced",
+                "value": "email.bounced"
+            }
+        ]
+    },
+    {
+        "name": "account_ids",
+        "label": "Accounts",
+        "type": "select",
+        "multiple": true,
+        "options": "rpc://rpcAllAccounts",
+        "help": "Only events of these accounts. Leave empty for every account."
+    }
+]

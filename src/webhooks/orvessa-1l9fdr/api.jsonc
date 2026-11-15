@@ -1,0 +1,11 @@
+{
+    // Orvessa posts {id, type, created_at, data: {message, catch_up}}; the event id stays the same on retries.
+    "condition": "{{if(webhook.skipCatchUp, if(body.data.catch_up, false, true), true)}}",
+    "output": {
+        "event_id": "{{body.id}}",
+        "event_type": "{{body.type}}",
+        "event_created_at": "{{body.created_at}}",
+        "catch_up": "{{body.data.catch_up}}",
+        "message": "{{body.data.message}}"
+    }
+}

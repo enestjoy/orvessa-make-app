@@ -1,0 +1,18 @@
+[
+    {
+        "name": "operation",
+        "label": "Operation",
+        "type": "text"
+    },
+    {
+        "name": "result",
+        "label": "Result",
+        "type": "any"
+    },
+    {
+        "name": "status_code",
+        "label": "Status code",
+        "type": "integer",
+        "help": "200 when done, 202 when accepted to finish later."
+    }
+]

@@ -1,0 +1,8 @@
+{
+    "url": "/accounts/{{encodeURL(parameters.account_id)}}/limits",
+    "method": "GET",
+    "response": {
+        "iterate": "{{body.items}}",
+        "output": "{{item}}"
+    }
+}

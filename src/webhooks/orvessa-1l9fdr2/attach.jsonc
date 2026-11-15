@@ -1,0 +1,15 @@
+{
+    "url": "/webhooks",
+    "method": "POST",
+    "body": {
+        "url": "{{webhook.url}}",
+        "description": "Make: Watch Account Events",
+        "events": "{{parameters.events}}",
+        "account_ids": "{{if(length(parameters.account_ids) > 0, parameters.account_ids, undefined)}}"
+    },
+    "response": {
+        "data": {
+            "externalHookId": "{{body.id}}"
+        }
+    }
+}

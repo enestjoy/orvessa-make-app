@@ -1,0 +1,10 @@
+{
+    "name": "reconnectAccount",
+    "label": "Reconnect an Account",
+    "description": "Restarts a failed, expired or disconnected account so it can sign in again.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "update"
+}

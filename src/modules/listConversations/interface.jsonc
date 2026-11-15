@@ -1,0 +1,51 @@
+[
+    {
+        "name": "id",
+        "label": "Conversation ID",
+        "type": "text"
+    },
+    {
+        "name": "account_id",
+        "label": "Account ID",
+        "type": "text"
+    },
+    {
+        "name": "kind",
+        "label": "Kind",
+        "type": "text",
+        "help": "direct or group."
+    },
+    {
+        "name": "contact",
+        "label": "Contact",
+        "type": "collection",
+        "spec": [
+            {
+                "name": "id",
+                "label": "Contact ID",
+                "type": "text"
+            },
+            {
+                "name": "handle",
+                "label": "Handle",
+                "type": "text",
+                "help": "Phone number without +, or @username; empty when the service hides it."
+            },
+            {
+                "name": "display_name",
+                "label": "Name",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "name": "last_message_at",
+        "label": "Last message at",
+        "type": "date"
+    },
+    {
+        "name": "created_at",
+        "label": "Created at",
+        "type": "date"
+    }
+]

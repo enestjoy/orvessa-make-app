@@ -1,0 +1,75 @@
+[
+    {
+        "name": "key",
+        "label": "Limit",
+        "type": "text"
+    },
+    {
+        "name": "value",
+        "label": "Value in force",
+        "type": "integer"
+    },
+    {
+        "name": "default",
+        "label": "Default",
+        "type": "integer"
+    },
+    {
+        "name": "min",
+        "label": "Minimum",
+        "type": "integer"
+    },
+    {
+        "name": "max",
+        "label": "Maximum",
+        "type": "integer"
+    },
+    {
+        "name": "overridden",
+        "label": "Overridden",
+        "type": "boolean"
+    },
+    {
+        "name": "source",
+        "label": "Source",
+        "type": "text",
+        "help": "account, plan or default."
+    },
+    {
+        "name": "warmup",
+        "label": "Warm-up",
+        "type": "collection",
+        "spec": [
+            {
+                "name": "day",
+                "label": "Day",
+                "type": "integer"
+            },
+            {
+                "name": "days",
+                "label": "Days",
+                "type": "integer"
+            },
+            {
+                "name": "percent",
+                "label": "Percent",
+                "type": "integer"
+            }
+        ]
+    },
+    {
+        "name": "used",
+        "label": "Used (24 h)",
+        "type": "integer"
+    },
+    {
+        "name": "remaining",
+        "label": "Remaining",
+        "type": "integer"
+    },
+    {
+        "name": "resets_in_seconds",
+        "label": "Resets in (seconds)",
+        "type": "integer"
+    }
+]

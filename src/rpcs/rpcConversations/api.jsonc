@@ -1,0 +1,21 @@
+{
+    "url": "/accounts/{{encodeURL(parameters.account_id)}}/conversations",
+    "method": "GET",
+    "qs": {
+        "limit": 100
+    },
+    "response": {
+        "limit": 300,
+        "iterate": "{{body.items}}",
+        "output": {
+            "label": "{{ifempty(item.contact.display_name, ifempty(item.contact.handle, item.id)) + ' (' + item.kind + ')'}}",
+            "value": "{{item.id}}"
+        }
+    },
+    "pagination": {
+        "qs": {
+            "cursor": "{{body.next_cursor}}"
+        },
+        "condition": "{{body.next_cursor}}"
+    }
+}

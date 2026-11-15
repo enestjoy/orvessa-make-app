@@ -1,0 +1,10 @@
+{
+    "name": "listConversations",
+    "label": "List Conversations",
+    "description": "Returns an account's conversations, most recently active first.",
+    "typeId": 9,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "read"
+}

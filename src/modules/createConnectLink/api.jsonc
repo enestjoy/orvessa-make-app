@@ -1,0 +1,14 @@
+{
+    "url": "/accounts/{{encodeURL(parameters.account_id)}}/connect-links",
+    "method": "POST",
+    "type": "json",
+    "body": {
+        "expires_in_seconds": "{{parameters.expires_in_seconds}}",
+        "reference": "{{parameters.reference}}",
+        "success_url": "{{parameters.success_url}}",
+        "failure_url": "{{parameters.failure_url}}"
+    },
+    "response": {
+        "output": "{{body}}"
+    }
+}

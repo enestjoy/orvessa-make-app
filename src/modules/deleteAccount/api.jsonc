@@ -1,0 +1,10 @@
+{
+    "url": "/accounts/{{encodeURL(parameters.account_id)}}",
+    "method": "DELETE",
+    "response": {
+        "output": {
+            "account_id": "{{parameters.account_id}}",
+            "deleted": true
+        }
+    }
+}

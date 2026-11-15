@@ -1,0 +1,10 @@
+{
+    "url": "/accounts/{{encodeURL(parameters.account_id)}}/connection",
+    "method": "GET",
+    "response": {
+        "output": {
+            "{{...}}": "{{body.account}}",
+            "connect_methods": "{{body.capabilities}}"
+        }
+    }
+}

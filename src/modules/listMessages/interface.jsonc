@@ -1,0 +1,119 @@
+[
+    {
+        "name": "id",
+        "label": "Message ID",
+        "type": "text"
+    },
+    {
+        "name": "status",
+        "label": "Status",
+        "type": "text",
+        "help": "received for inbound messages; awaiting_approval, pending, sent, delivered, read or failed for outbound ones."
+    },
+    {
+        "name": "error_code",
+        "label": "Error code",
+        "type": "text"
+    },
+    {
+        "name": "account_id",
+        "label": "Account ID",
+        "type": "text"
+    },
+    {
+        "name": "conversation_id",
+        "label": "Conversation ID",
+        "type": "text"
+    },
+    {
+        "name": "direction",
+        "label": "Direction",
+        "type": "text",
+        "help": "inbound or outbound."
+    },
+    {
+        "name": "type",
+        "label": "Type",
+        "type": "text",
+        "help": "text, media, location, contact or other."
+    },
+    {
+        "name": "text",
+        "label": "Text",
+        "type": "text"
+    },
+    {
+        "name": "sender",
+        "label": "Sender",
+        "type": "collection",
+        "spec": [
+            {
+                "name": "id",
+                "label": "Contact ID",
+                "type": "text"
+            },
+            {
+                "name": "handle",
+                "label": "Handle",
+                "type": "text",
+                "help": "Phone number without +, or @username; empty when the service hides it."
+            },
+            {
+                "name": "display_name",
+                "label": "Name",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "name": "attachments",
+        "label": "Attachments",
+        "type": "array",
+        "spec": {
+            "type": "collection",
+            "spec": [
+                {
+                    "name": "id",
+                    "label": "Attachment ID",
+                    "type": "text"
+                },
+                {
+                    "name": "mime_type",
+                    "label": "MIME type",
+                    "type": "text"
+                },
+                {
+                    "name": "file_name",
+                    "label": "File name",
+                    "type": "text"
+                },
+                {
+                    "name": "size_bytes",
+                    "label": "Size (bytes)",
+                    "type": "uinteger"
+                },
+                {
+                    "name": "status",
+                    "label": "Status",
+                    "type": "text",
+                    "help": "pending, stored, skipped, failed or expired."
+                },
+                {
+                    "name": "reason",
+                    "label": "Reason",
+                    "type": "text"
+                }
+            ]
+        }
+    },
+    {
+        "name": "sent_at",
+        "label": "Sent at",
+        "type": "date"
+    },
+    {
+        "name": "created_at",
+        "label": "Created at",
+        "type": "date"
+    }
+]
