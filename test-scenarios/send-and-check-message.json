@@ -1,0 +1,55 @@
+{
+    "$comment": "Sends a real message. Set the account, the phone number and a new idempotency key before each run.",
+    "name": "Orvessa Messaging Test | send and check",
+    "flow": [
+        {
+            "id": 1,
+            "module": "app#orvessa-1l9fdr:sendMessage",
+            "version": 1,
+            "parameters": { "__IMTCONN__": "<ORVESSA_CONNECTION_ID>" },
+            "mapper": {
+                "account_id": "<ACCOUNT_ID>",
+                "recipient": "phone",
+                "to": "<+40...>",
+                "text": "Orvessa for Make: test message",
+                "idempotency_key": "<UNIQUE_KEY>"
+            }
+        },
+        {
+            "id": 2,
+            "module": "app#orvessa-1l9fdr:getMessage",
+            "version": 1,
+            "parameters": { "__IMTCONN__": "<ORVESSA_CONNECTION_ID>" },
+            "mapper": { "message_id": "{{1.id}}" }
+        },
+        {
+            "id": 3,
+            "module": "scenario-service:ReturnData",
+            "version": 2,
+            "mapper": {
+                "message_id": "{{1.id}}",
+                "status_after_send": "{{1.status}}",
+                "status_now": "{{2.status}}",
+                "error_code": "{{2.error_code}}"
+            },
+            "metadata": {
+                "expect": [
+                    { "name": "message_id", "type": "text" },
+                    { "name": "status_after_send", "type": "text" },
+                    { "name": "status_now", "type": "text" },
+                    { "name": "error_code", "type": "text" }
+                ]
+            }
+        }
+    ],
+    "metadata": { "version": 1, "instant": false },
+    "interface": {
+        "input": [],
+        "output": [
+            { "name": "message_id", "type": "text" },
+            { "name": "status_after_send", "type": "text" },
+            { "name": "status_now", "type": "text" },
+            { "name": "error_code", "type": "text" }
+        ]
+    }
+}

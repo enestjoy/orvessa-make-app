@@ -41,23 +41,20 @@ exists only in Make is reported and left alone; delete it in Make's editor if yo
 
 ## Testing in Make
 
-The test scenarios live in the ENESTJOY team (`eu2.make.com`, team 1044537):
+Test scenarios are not kept in Make; their blueprints are in [`test-scenarios/`](../test-scenarios).
+Create one when you need it (Make: *Create a new scenario* > *Import blueprint*, or the Make API
+or MCP), replace the `<...>` placeholders with your connection ID and test values, set it to
+run on demand, and delete it afterwards.
 
-| Scenario (ID) | Checks |
+| Blueprint | Checks |
 | --- | --- |
-| Orvessa AI Test, chat completion (10166646) | Create a Chat Completion; returns text, finish reason, model and tokens as scenario outputs |
-| Orvessa Messaging Test, read only (10166671) | List Connected Accounts or Get a Message, with outputs; sends nothing |
-| Orvessa AI Gateway, Test modele (10164883) | List AI Models |
-| Orvessa AI Gateway, Test răspuns Groq (10164892) | Test AI Completion with a Groq model |
-| Orvessa AI Test, gemini (10164893) | Test AI Completion with a Gemini model |
-| Orvessa AI Test, openrouter (10164894) | Test AI Completion with an OpenRouter free model |
-| Integration Orvessa (10164878) | Send a Message, then Get a Message, with outputs (**sends a real message**; change the idempotency key before each run, or Orvessa returns the earlier message) |
+| `chat-completion.json` | Create a Chat Completion; returns text, finish reason, model and tokens |
+| `list-accounts.json` | List Connected Accounts with a filter; sends nothing |
+| `send-and-check-message.json` | Send a Message, then Get a Message (**sends a real message**; use a new idempotency key for each run, or Orvessa returns the earlier message) |
 
-They run on demand, so they spend operations only when you start them. The plan allows two
-active scenarios at a time: activate, run, deactivate.
-
-The two scenarios with outputs end in *Return output*, so a run started through the Make API
-or MCP returns the module's fields, which makes it easy to check the mapping of a response.
+Each ends in *Return output*, so a run started through the Make API or MCP returns the module's
+fields, which makes it easy to check the mapping of a response. The plan allows two active
+scenarios at a time.
 To check error handling, map a wrong value (an unknown model, a random message ID) and read
 the error the run returns.
 

@@ -1,0 +1,48 @@
+{
+    "name": "Orvessa AI Test | chat completion",
+    "flow": [
+        {
+            "id": 1,
+            "module": "app#orvessa-1l9fdr:createChatCompletion",
+            "version": 1,
+            "parameters": { "__IMTCONN__": "<ORVESSA_CONNECTION_ID>" },
+            "mapper": {
+                "model": "groq/openai/gpt-oss-20b",
+                "messages": [
+                    { "role": "system", "content": "You answer in one short sentence." },
+                    { "role": "user", "content": "What is the capital of Romania?" }
+                ],
+                "max_tokens": 300
+            }
+        },
+        {
+            "id": 2,
+            "module": "scenario-service:ReturnData",
+            "version": 2,
+            "mapper": {
+                "text": "{{1.text}}",
+                "finish_reason": "{{1.finish_reason}}",
+                "model": "{{1.model}}",
+                "total_tokens": "{{1.usage.total_tokens}}"
+            },
+            "metadata": {
+                "expect": [
+                    { "name": "text", "type": "text" },
+                    { "name": "finish_reason", "type": "text" },
+                    { "name": "model", "type": "text" },
+                    { "name": "total_tokens", "type": "text" }
+                ]
+            }
+        }
+    ],
+    "metadata": { "version": 1, "instant": false },
+    "interface": {
+        "input": [],
+        "output": [
+            { "name": "text", "type": "text" },
+            { "name": "finish_reason", "type": "text" },
+            { "name": "model", "type": "text" },
+            { "name": "total_tokens", "type": "text" }
+        ]
+    }
+}

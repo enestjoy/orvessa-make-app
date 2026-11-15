@@ -83,6 +83,7 @@ src/                   the app, one file per section, as Make stores it
   rpcs/<name>/         dynamic option lists (for example, models and accounts)
 scripts/make-app.mjs   pull, push and validate (Node 22+, no dependencies)
 docs/                  development guide and troubleshooting notes
+test-scenarios/        blueprints of the Make scenarios used to test the app
 ```
 
 ## Development

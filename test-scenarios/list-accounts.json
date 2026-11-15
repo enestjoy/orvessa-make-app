@@ -1,0 +1,38 @@
+{
+    "name": "Orvessa Messaging Test | list accounts",
+    "flow": [
+        {
+            "id": 1,
+            "module": "app#orvessa-1l9fdr:listAccounts",
+            "version": 1,
+            "parameters": { "__IMTCONN__": "<ORVESSA_CONNECTION_ID>" },
+            "mapper": { "limit": 20, "status": "connected" }
+        },
+        {
+            "id": 2,
+            "module": "scenario-service:ReturnData",
+            "version": 2,
+            "mapper": {
+                "account_id": "{{1.id}}",
+                "provider": "{{1.provider}}",
+                "status": "{{1.status}}"
+            },
+            "metadata": {
+                "expect": [
+                    { "name": "account_id", "type": "text" },
+                    { "name": "provider", "type": "text" },
+                    { "name": "status", "type": "text" }
+                ]
+            }
+        }
+    ],
+    "metadata": { "version": 1, "instant": false },
+    "interface": {
+        "input": [],
+        "output": [
+            { "name": "account_id", "type": "text" },
+            { "name": "provider", "type": "text" },
+            { "name": "status", "type": "text" }
+        ]
+    }
+}
