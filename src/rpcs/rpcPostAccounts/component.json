@@ -1,0 +1,6 @@
+{
+    "name": "rpcPostAccounts",
+    "label": "Accounts that can post",
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null
+}

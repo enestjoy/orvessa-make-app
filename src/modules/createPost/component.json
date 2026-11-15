@@ -1,0 +1,10 @@
+{
+    "name": "createPost",
+    "label": "Create a Post",
+    "description": "Publishes a public post from a connected social account (Bluesky, Mastodon, LinkedIn, X).",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "webhook": null,
+    "crud": "create"
+}

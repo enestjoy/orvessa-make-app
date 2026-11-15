@@ -8,6 +8,12 @@
         ]
     },
     {
+        "label": "Social",
+        "modules": [
+            "createPost"
+        ]
+    },
+    {
         "label": "AI Gateway",
         "modules": [
             "createChatCompletion",

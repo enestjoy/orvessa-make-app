@@ -1,0 +1,20 @@
+{
+    // The capability registry runs the same operation for every network.
+    "url": "/accounts/{{encodeURL(parameters.account_id)}}/operations/posts.create",
+    "method": "POST",
+    "type": "json",
+    "headers": {
+        "Idempotency-Key": "{{parameters.idempotency_key}}"
+    },
+    "body": {
+        "text": "{{parameters.text}}",
+        "image_url": "{{parameters.image_url}}",
+        "destination": "{{parameters.destination}}"
+    },
+    "response": {
+        "output": {
+            "id": "{{body.result.id}}",
+            "url": "{{body.result.url}}"
+        }
+    }
+}
