@@ -1,0 +1,5 @@
+{
+    "url": "/messages/{{parameters.message_id}}",
+    "method": "GET",
+    "output": "{{body}}"
+}

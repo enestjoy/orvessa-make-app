@@ -1,0 +1,5 @@
+{
+    "url": "/ai/models",
+    "method": "GET",
+    "output": "{{body}}"
+}

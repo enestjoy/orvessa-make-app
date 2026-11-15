@@ -1,0 +1,17 @@
+{
+    "url": "https://orvessa.uk/v1/accounts",
+    "method": "GET",
+    "headers": {
+        "Authorization": "Bearer {{parameters.apiKey}}"
+    },
+    "response": {
+        "error": {
+            "message": "[{{statusCode}}] {{body.message}}"
+        }
+    },
+    "log": {
+        "sanitize": [
+            "request.headers.authorization"
+        ]
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "name": "sendMessage",
+    "label": "Send a Message",
+    "description": "Send a text message through a connected Orvessa account.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "crud": null
+}

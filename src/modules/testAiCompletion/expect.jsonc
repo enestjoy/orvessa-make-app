@@ -1,0 +1,8 @@
+[
+    {
+        "name": "model",
+        "label": "Model ID",
+        "type": "text",
+        "required": true
+    }
+]

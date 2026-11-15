@@ -65,7 +65,8 @@ const COMPONENTS = {
       "webhook",
       "crud",
     ],
-    editable: ["label", "description", "connection", "altConnection", "webhook", "crud"],
+    // typeId can change (an action that lists becomes a search); Make allows it on PATCH.
+    editable: ["label", "description", "typeId", "connection", "altConnection", "webhook", "crud"],
   },
   functions: {
     list: `${appPath}/functions`,
@@ -97,9 +98,10 @@ function formatSection(text) {
   }
 }
 
+/** Make returns {} or [] for a section nobody filled in; those stay out of src/. */
 function isEmpty(text) {
-  const t = (text ?? "").trim();
-  return t === "" || t === "null";
+  const t = (text ?? "").replace(/\s+/g, "");
+  return t === "" || t === "null" || t === "{}" || t === "[]";
 }
 
 function pick(object, keys) {

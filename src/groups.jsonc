@@ -1,0 +1,12 @@
+[
+    {
+        "label": "Other",
+        "modules": [
+            "listAccounts",
+            "sendMessage",
+            "getMessage",
+            "listAiModels",
+            "testAiCompletion"
+        ]
+    }
+]

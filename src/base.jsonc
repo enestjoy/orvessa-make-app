@@ -1,0 +1,11 @@
+{
+    "baseUrl": "https://orvessa.uk/v1",
+    "headers": {
+        "Authorization": "Bearer {{connection.apiKey}}"
+    },
+    "log": {
+        "sanitize": [
+            "request.headers.authorization"
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "url": "/accounts",
+    "method": "GET",
+    "output": "{{body}}"
+}

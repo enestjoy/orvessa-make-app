@@ -1,0 +1,14 @@
+{
+    "url": "/messages",
+    "method": "POST",
+    "type": "json",
+    "headers": {
+        "Idempotency-Key": "{{parameters.idempotency_key}}"
+    },
+    "body": {
+        "account_id": "{{parameters.account_id}}",
+        "to": "{{parameters.to}}",
+        "text": "{{parameters.text}}"
+    },
+    "output": "{{body}}"
+}

@@ -1,0 +1,9 @@
+{
+    "name": "listAccounts",
+    "label": "List Connected Accounts",
+    "description": "List accounts connected to your Orvessa workspace.",
+    "typeId": 9,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "crud": "read"
+}

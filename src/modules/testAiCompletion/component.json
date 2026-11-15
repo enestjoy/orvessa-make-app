@@ -1,0 +1,9 @@
+{
+    "name": "testAiCompletion",
+    "label": "Test AI Completion",
+    "description": "Send a minimal prompt to an explicitly selected Orvessa AI model.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "crud": null
+}

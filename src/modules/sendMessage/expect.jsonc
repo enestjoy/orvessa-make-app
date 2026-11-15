@@ -1,0 +1,27 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account ID",
+        "type": "text",
+        "required": true
+    },
+    {
+        "name": "to",
+        "label": "Recipient",
+        "type": "text",
+        "required": true
+    },
+    {
+        "name": "text",
+        "label": "Message",
+        "type": "text",
+        "required": true
+    },
+    {
+        "name": "idempotency_key",
+        "label": "Unique Request ID",
+        "type": "text",
+        "required": true,
+        "help": "Use a unique identifier for each message; reuse the same value only when retrying the same message."
+    }
+]

@@ -1,0 +1,16 @@
+{
+    "url": "/ai/chat/completions",
+    "method": "POST",
+    "type": "json",
+    "body": {
+        "model": "{{parameters.model}}",
+        "messages": [
+            {
+                "role": "user",
+                "content": "Răspunde doar cu OK"
+            }
+        ],
+        "stream": false
+    },
+    "output": "{{body}}"
+}
