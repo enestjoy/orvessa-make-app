@@ -51,7 +51,7 @@ The test scenarios live in the ENESTJOY team (`eu2.make.com`, team 1044537):
 | Orvessa AI Gateway, Test răspuns Groq (10164892) | Test AI Completion with a Groq model |
 | Orvessa AI Test, gemini (10164893) | Test AI Completion with a Gemini model |
 | Orvessa AI Test, openrouter (10164894) | Test AI Completion with an OpenRouter free model |
-| Integration Orvessa (10164878) | List Connected Accounts, then Send a Message (**sends a real message**) |
+| Integration Orvessa (10164878) | Send a Message, then Get a Message, with outputs (**sends a real message**; change the idempotency key before each run, or Orvessa returns the earlier message) |
 
 They run on demand, so they spend operations only when you start them. The plan allows two
 active scenarios at a time: activate, run, deactivate.
@@ -78,4 +78,4 @@ The option lists (RPCs) can be run on their own through the Make API or MCP
 | Unknown model | `[400] … (VALIDATION_FAILED) Request ID: …`, `DataError` |
 | Retired model | `[502]` with the explanation, `RuntimeError`, not retried |
 | Unknown message ID | `[404] Message not found. Request ID: …`, `DataError` |
-| Send a Message | **Not run**: it sends a real message |
+| Send a Message, then Get a Message | `pending` on send, `delivered` seconds later (WhatsApp) |
