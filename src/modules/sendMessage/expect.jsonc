@@ -1,27 +1,65 @@
 [
     {
         "name": "account_id",
-        "label": "Account ID",
-        "type": "text",
-        "required": true
+        "label": "Account",
+        "type": "select",
+        "options": "rpc://rpcAccounts",
+        "required": true,
+        "help": "The connected account that sends the message. Its status must be `connected`."
     },
     {
-        "name": "to",
-        "label": "Recipient",
-        "type": "text",
-        "required": true
+        "name": "recipient",
+        "label": "Send to",
+        "type": "select",
+        "required": true,
+        "default": "phone",
+        "options": [
+            {
+                "label": "A phone number",
+                "value": "phone",
+                "nested": [
+                    {
+                        "name": "to",
+                        "label": "Phone number",
+                        "type": "text",
+                        "required": true,
+                        "help": "In international format, for example `+40711111111`."
+                    }
+                ]
+            },
+            {
+                "label": "An existing conversation",
+                "value": "conversation",
+                "nested": [
+                    {
+                        "name": "conversation_id",
+                        "label": "Conversation ID",
+                        "type": "text",
+                        "required": true,
+                        "help": "The `Conversation ID` of an earlier message of the same account."
+                    }
+                ]
+            }
+        ]
     },
     {
         "name": "text",
         "label": "Message",
         "type": "text",
-        "required": true
+        "multiline": true,
+        "required": true,
+        "validate": {
+            "max": 4096
+        }
     },
     {
         "name": "idempotency_key",
-        "label": "Unique Request ID",
+        "label": "Idempotency key",
         "type": "text",
         "required": true,
-        "help": "Use a unique identifier for each message; reuse the same value only when retrying the same message."
+        "validate": {
+            "max": 255
+        },
+        "help": "A value unique to this message, without spaces, for example the ID of the record that triggers the scenario. If the module runs again with the same key, Orvessa returns the first message instead of sending it twice."
     }
 ]

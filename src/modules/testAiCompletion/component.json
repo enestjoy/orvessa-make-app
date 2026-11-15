@@ -1,7 +1,7 @@
 {
     "name": "testAiCompletion",
     "label": "Test AI Completion",
-    "description": "Send a minimal prompt to an explicitly selected Orvessa AI model.",
+    "description": "Sends a short test prompt to a model, to check that it answers through the Orvessa AI Gateway.",
     "typeId": 4,
     "connection": "orvessa-1l9fdr",
     "altConnection": null,

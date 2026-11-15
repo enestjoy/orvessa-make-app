@@ -1,6 +1,6 @@
 {
     "label": "Orvessa",
-    "description": "Connect your own messaging accounts through Orvessa. Send and receive messages, manage conversations, and automate connected channels.",
+    "description": "Send messages through the messaging accounts you connected to Orvessa, track their delivery, and call AI models through the Orvessa AI Gateway.",
     "theme": "#0f766e",
     "language": "en",
     "countries": null

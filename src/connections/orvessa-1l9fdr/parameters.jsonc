@@ -2,8 +2,9 @@
     {
         "name": "apiKey",
         "type": "password",
-        "label": "API Key",
+        "label": "API key",
         "required": true,
-        "editable": true
+        "editable": true,
+        "help": "Create the key in Orvessa under **API keys**. Make checks it by listing your accounts, so the key needs the `accounts:read` scope, plus the scopes of the modules you use: `messages:send`, `messages:read` or `ai:use`."
     }
 ]

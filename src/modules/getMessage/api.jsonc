@@ -1,5 +1,7 @@
 {
-    "url": "/messages/{{parameters.message_id}}",
+    "url": "/messages/{{encodeURL(parameters.message_id)}}",
     "method": "GET",
-    "output": "{{body}}"
+    "response": {
+        "output": "{{body}}"
+    }
 }

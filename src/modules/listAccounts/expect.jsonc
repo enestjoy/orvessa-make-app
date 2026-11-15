@@ -1,0 +1,32 @@
+[
+    {
+        "name": "status",
+        "label": "Status",
+        "type": "select",
+        "help": "Only accounts in this state. Leave empty for all.",
+        "options": [
+            { "label": "Connected", "value": "connected" },
+            { "label": "Connecting", "value": "connecting" },
+            { "label": "Pending", "value": "pending" },
+            { "label": "Sign-in required", "value": "auth_required" },
+            { "label": "Degraded", "value": "degraded" },
+            { "label": "Expired", "value": "expired" },
+            { "label": "Disconnected", "value": "disconnected" },
+            { "label": "Error", "value": "error" }
+        ]
+    },
+    {
+        "name": "provider",
+        "label": "Provider",
+        "type": "text",
+        "help": "Only accounts of this service, for example `whatsapp` or `telegram`. Leave empty for all."
+    },
+    {
+        "name": "limit",
+        "label": "Limit",
+        "type": "uinteger",
+        "default": 10,
+        "required": true,
+        "help": "The most accounts to return."
+    }
+]

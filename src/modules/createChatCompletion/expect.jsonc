@@ -1,0 +1,56 @@
+[
+    {
+        "name": "model",
+        "label": "Model",
+        "type": "select",
+        "options": "rpc://rpcAiModels",
+        "required": true,
+        "help": "Models of the providers connected in Orvessa, as `provider/model`. In mapping mode, map one from List AI Models."
+    },
+    {
+        "name": "messages",
+        "label": "Messages",
+        "type": "array",
+        "required": true,
+        "help": "The conversation so far. Put instructions in a System message, then the User's request.",
+        "spec": [
+            {
+                "name": "role",
+                "label": "Role",
+                "type": "select",
+                "required": true,
+                "default": "user",
+                "options": [
+                    { "label": "System", "value": "system" },
+                    { "label": "User", "value": "user" },
+                    { "label": "Assistant", "value": "assistant" }
+                ]
+            },
+            {
+                "name": "content",
+                "label": "Content",
+                "type": "text",
+                "multiline": true,
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "max_tokens",
+        "label": "Maximum tokens",
+        "type": "uinteger",
+        "advanced": true,
+        "help": "The longest answer, in tokens. Leave empty for the model's default. Reasoning models spend part of it before they answer."
+    },
+    {
+        "name": "temperature",
+        "label": "Temperature",
+        "type": "number",
+        "advanced": true,
+        "validate": {
+            "min": 0,
+            "max": 2
+        },
+        "help": "0 gives the most predictable answers, higher values more varied ones. Leave empty for the model's default."
+    }
+]

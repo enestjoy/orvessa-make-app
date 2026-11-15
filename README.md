@@ -9,34 +9,65 @@ AI models from Make scenarios, all with one Orvessa API key.
 
 ## Modules
 
+### Messaging
+
 | Module | Type | What it does |
 | --- | --- | --- |
-| List Connected Accounts | Search | Lists the accounts connected to your Orvessa workspace. |
-| Send a Message | Action | Sends a text message through a connected account. |
-| Get a Message | Action | Returns the status and details of a message Orvessa sent. |
-| List AI Models | Search | Lists the AI models you can use through the Orvessa AI Gateway. |
-| Test AI Completion | Action | Sends a short prompt to a chosen model, to check it answers. |
+| Send a Message | Action | Sends text through a connected account, to a phone number or an existing conversation. Pick the account from a list. |
+| Get a Message | Action | Returns a message and its status: `pending`, `sent`, `delivered`, `read` or `failed`. |
+| List Connected Accounts | Search | Lists your accounts, filtered by status or provider, one bundle per account. |
+
+### AI Gateway
+
+| Module | Type | What it does |
+| --- | --- | --- |
+| Create a Chat Completion | Action | Sends system, user and assistant messages to a model and returns the answer, finish reason and token usage. |
+| List AI Models | Search | Lists the models your connected AI providers offer, one bundle per model. |
+| Test AI Completion | Action | Sends a short test prompt to a model, to check it answers. |
+
+Every field you pick from (account, model) is a list loaded from Orvessa; in mapping mode you
+can map the ID instead.
 
 ## Connection
 
 The connection takes an **Orvessa API key**, created in the Orvessa dashboard under
-*API keys*. Give the key only the scopes your scenarios need:
+*API keys*. Make checks the key by listing your accounts, so it always needs `accounts:read`.
+Add only the scopes your scenarios need:
 
 | Scope | Needed for |
 | --- | --- |
-| `accounts:read` | List Connected Accounts |
+| `accounts:read` | The connection check, List Connected Accounts, the account list in Send a Message |
 | `messages:send` | Send a Message |
 | `messages:read` | Get a Message |
-| `ai:use` | List AI Models, Test AI Completion |
+| `ai:use` | Create a Chat Completion, List AI Models, Test AI Completion |
 
-Make checks the key when you save the connection.
+## Errors
+
+Errors show Orvessa's own message, its code and the request ID, for example
+`[404] Message not found. Request ID: aeac6e11-…`. The error type tells Make what to do:
+
+| Status | Make error type | Effect |
+| --- | --- | --- |
+| 400, 404, 409, 501 | `DataError` | Stops the module; the data must change. |
+| 401 | `InvalidAccessTokenError` | The key was refused; update the connection. |
+| 403 | `RuntimeError` | Missing scope, suspended workspace or plan limit. |
+| 429 | `RateLimitError` | Make waits and resumes. |
+| 502 | `RuntimeError` | The connected service or AI provider refused the request; not retried. |
+| 500, 503, 504 | `ConnectionError` | Temporary; Make retries later. |
+
+orvessa.uk is served through Cloudflare, which replaces the body of a 502, 503 or 504 with its
+own text, so those three show a fixed explanation instead of Orvessa's message.
 
 ## AI models
 
 The AI modules use the providers the workspace owner connected in Orvessa (Groq, Google Gemini,
 OpenRouter, Mistral, Cloudflare Workers AI or a custom endpoint). A model is written
-`provider/model`, for example `groq/openai/gpt-oss-20b`. Pick it from **List AI Models**:
-providers retire models, and a retired model fails with *model not found*.
+`provider/model`, for example `groq/openai/gpt-oss-20b`. Pick it from the list: providers retire
+models, and a retired model fails with a 502.
+
+Make waits at most 40 seconds for a module. Slow reasoning models (for example
+`gemini/gemini-flash-latest`) can exceed that; prefer fast ones such as
+`gemini/gemini-flash-lite-latest` or `groq/openai/gpt-oss-20b`, or set *Maximum tokens*.
 
 ## Repository layout
 

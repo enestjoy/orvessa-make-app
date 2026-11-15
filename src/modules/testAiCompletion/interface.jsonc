@@ -1,0 +1,15 @@
+[
+    { "name": "text", "label": "Answer", "type": "text" },
+    { "name": "finish_reason", "label": "Finish reason", "type": "text" },
+    { "name": "model", "label": "Model", "type": "text" },
+    {
+        "name": "usage",
+        "label": "Usage",
+        "type": "collection",
+        "spec": [
+            { "name": "prompt_tokens", "label": "Prompt tokens", "type": "uinteger" },
+            { "name": "completion_tokens", "label": "Completion tokens", "type": "uinteger" },
+            { "name": "total_tokens", "label": "Total tokens", "type": "uinteger" }
+        ]
+    }
+]

@@ -127,6 +127,13 @@ function dirs(path) {
     : [];
 }
 
+/** A component's full metadata: list endpoints leave fields out (RPCs omit their connection). */
+async function details(make, spec, item) {
+  const response = await make.json("GET", spec.item(item.name)).catch(() => null);
+  const detail = response && Object.values(response).find((v) => v && typeof v === "object");
+  return { ...item, ...(detail ?? {}) };
+}
+
 function api() {
   loadDotEnv(ROOT);
   return new MakeApi({ zone: process.env.MAKE_ZONE ?? manifest.zone, token: process.env.MAKE_API_TOKEN });
@@ -160,7 +167,8 @@ async function pull() {
     const items = listOf(await make.json("GET", spec.list).catch(() => []));
     for (const item of items) {
       const dir = join(SRC, kind, item.name);
-      write(join(dir, "component.json"), JSON.stringify(pick(item, spec.meta), null, 4));
+      const full = await details(make, spec, item);
+      write(join(dir, "component.json"), JSON.stringify(pick(full, spec.meta), null, 4));
       for (const section of spec.sections) {
         const text = await make.section(`${spec.item(item.name)}/${section}`);
         if (!isEmpty(text)) write(join(dir, `${section}.jsonc`), formatSection(text));
@@ -210,11 +218,13 @@ async function push({ dryRun, force }) {
       if (!dryRun) await make.json("PATCH", appPath, { body: changed });
     }
   }
-  for (const section of APP_SECTIONS) {
+  const pushAppSection = async (section) => {
     const file = join(SRC, `${section}.jsonc`);
     if (existsSync(file))
       await put(`${appPath}/${section}`, readFileSync(file, "utf8"), "application/jsonc", `${section}`);
-  }
+  };
+  // Groups name modules, so they go last, once every module exists.
+  for (const section of APP_SECTIONS.filter((s) => s !== "groups")) await pushAppSection(section);
   const readme = join(SRC, "readme.md");
   if (existsSync(readme))
     await put(`${appPath}/readme`, readFileSync(readme, "utf8"), "text/markdown", "readme");
@@ -232,7 +242,7 @@ async function push({ dryRun, force }) {
         say(`create ${kind}/${name}`);
         if (!dryRun) await make.json("POST", spec.create, { body: meta });
       } else {
-        const current = remote.get(name);
+        const current = await details(make, spec, remote.get(name));
         const changed = Object.fromEntries(
           spec.editable.filter((k) => k in meta && !same(meta[k], current[k])).map((k) => [k, meta[k]]),
         );
@@ -267,6 +277,7 @@ async function push({ dryRun, force }) {
         console.warn(`note: ${kind}/${name} exists in Make but not in src/ (left untouched)`);
     }
   }
+  await pushAppSection("groups");
   console.log(dryRun ? "\nDry run finished; nothing was sent." : "\nPush finished.");
 }
 

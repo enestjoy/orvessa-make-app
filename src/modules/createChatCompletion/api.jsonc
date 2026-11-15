@@ -1,0 +1,23 @@
+{
+    "url": "/ai/chat/completions",
+    "method": "POST",
+    "type": "json",
+    "body": {
+        "model": "{{parameters.model}}",
+        "messages": "{{parameters.messages}}",
+        // Empty optional fields are left out, so the model's defaults apply.
+        "max_tokens": "{{parameters.max_tokens}}",
+        "temperature": "{{parameters.temperature}}",
+        // Make modules wait for one answer; streaming is for clients that read it as it comes.
+        "stream": false
+    },
+    "response": {
+        "output": {
+            "text": "{{body.choices[1].message.content}}",
+            "finish_reason": "{{body.choices[1].finish_reason}}",
+            "model": "{{body.model}}",
+            "id": "{{body.id}}",
+            "usage": "{{body.usage}}"
+        }
+    }
+}

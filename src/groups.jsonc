@@ -1,10 +1,16 @@
 [
     {
-        "label": "Other",
+        "label": "Messaging",
         "modules": [
-            "listAccounts",
             "sendMessage",
             "getMessage",
+            "listAccounts"
+        ]
+    },
+    {
+        "label": "AI Gateway",
+        "modules": [
+            "createChatCompletion",
             "listAiModels",
             "testAiCompletion"
         ]

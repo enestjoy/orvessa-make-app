@@ -1,12 +1,22 @@
 {
+    // Validates the key when the connection is saved. The connection does not inherit base.
     "url": "https://orvessa.uk/v1/accounts",
     "method": "GET",
+    "qs": {
+        "limit": 1
+    },
     "headers": {
         "Authorization": "Bearer {{parameters.apiKey}}"
     },
     "response": {
         "error": {
-            "message": "[{{statusCode}}] {{body.message}}"
+            "message": "[{{statusCode}}] {{ifempty(body.error.message, 'Orvessa refused the API key.')}}{{if(body.error.code, ' (' + body.error.code + ')', '')}}",
+            "401": {
+                "message": "[401] Orvessa refused the API key: {{ifempty(body.error.message, 'it is wrong, expired or revoked.')}}"
+            },
+            "403": {
+                "message": "[403] {{ifempty(body.error.message, 'The key is valid but cannot list accounts.')}} The connection check needs the accounts:read scope."
+            }
         }
     },
     "log": {

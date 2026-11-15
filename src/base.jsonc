@@ -1,7 +1,56 @@
 {
+    // Every module calls Orvessa's public API with the connection's key.
     "baseUrl": "https://orvessa.uk/v1",
     "headers": {
         "Authorization": "Bearer {{connection.apiKey}}"
+    },
+    "response": {
+        // Orvessa answers every error as {"error": {"code", "action", "message", "request_id"}}.
+        // The message says what to change; the request ID lets Orvessa support find the call.
+        // Types follow error.action: a refused request ("fix", "skip") stops the run instead of
+        // being retried as an outage. 429 keeps Make's RateLimitError and 500/503 its
+        // ConnectionError, so those are retried.
+        "error": {
+            "message": "[{{statusCode}}] {{ifempty(body.error.message, 'Orvessa returned an error without details.')}}{{if(body.error.code, ' (' + body.error.code + ')', '')}}{{if(body.error.request_id, ' Request ID: ' + body.error.request_id, '')}}",
+            "400": {
+                "type": "DataError",
+                "message": "[400] {{ifempty(body.error.message, 'Orvessa refused the request.')}}{{if(body.error.code, ' (' + body.error.code + ')', '')}}{{if(body.error.request_id, ' Request ID: ' + body.error.request_id, '')}}"
+            },
+            "401": {
+                "type": "InvalidAccessTokenError",
+                "message": "[401] Orvessa refused the API key: {{ifempty(body.error.message, 'it is wrong, expired or revoked.')}} Create a new key in Orvessa and update the connection."
+            },
+            "403": {
+                // INSUFFICIENT_SCOPE, FORBIDDEN, ACCOUNT_SUSPENDED or PLAN_LIMIT_REACHED; the message names the cause.
+                "message": "[403] {{ifempty(body.error.message, 'This API key is not allowed to do that.')}}{{if(body.error.code, ' (' + body.error.code + ')', '')}}"
+            },
+            "404": {
+                "type": "DataError",
+                "message": "[404] {{ifempty(body.error.message, 'Not found.')}}{{if(body.error.request_id, ' Request ID: ' + body.error.request_id, '')}}"
+            },
+            "409": {
+                "type": "DataError",
+                "message": "[409] {{ifempty(body.error.message, 'The request conflicts with an earlier one.')}}{{if(body.error.code, ' (' + body.error.code + ')', '')}}"
+            },
+            "501": {
+                "type": "DataError",
+                "message": "[501] {{ifempty(body.error.message, 'This account cannot do that.')}}{{if(body.error.code, ' (' + body.error.code + ')', '')}}"
+            },
+            // orvessa.uk is served through Cloudflare, which replaces the body of a 502, 503 or
+            // 504 with its own text ("error code: 502"), so these messages cannot quote Orvessa.
+            "502": {
+                // PROVIDER_ERROR: the messaging service or AI provider refused the request.
+                // Retrying the same request does not help, so it is not a ConnectionError.
+                "type": "RuntimeError",
+                "message": "[502] The connected service refused the request. In an AI module, the model is usually no longer offered by its provider: pick one from List AI Models. In a messaging module, check that the account is connected."
+            },
+            "503": {
+                "message": "[503] Orvessa or the connected service is unavailable for the moment. Make retries the module later."
+            },
+            "504": {
+                "message": "[504] Orvessa did not answer in time. Make retries the module later."
+            }
+        }
     },
     "log": {
         "sanitize": [

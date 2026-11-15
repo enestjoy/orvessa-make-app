@@ -1,0 +1,11 @@
+{
+    "text": "Hello! How can I help you today?",
+    "finish_reason": "stop",
+    "model": "openai/gpt-oss-20b",
+    "id": "chatcmpl-7c1e0f3a",
+    "usage": {
+        "prompt_tokens": 12,
+        "completion_tokens": 9,
+        "total_tokens": 21
+    }
+}

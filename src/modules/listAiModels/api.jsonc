@@ -1,5 +1,12 @@
 {
     "url": "/ai/models",
     "method": "GET",
-    "output": "{{body}}"
+    "response": {
+        "iterate": "{{body.data}}",
+        "output": {
+            "id": "{{item.id}}",
+            "provider": "{{item.owned_by}}"
+        },
+        "limit": "{{parameters.limit}}"
+    }
 }

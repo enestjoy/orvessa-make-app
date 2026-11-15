@@ -1,8 +1,10 @@
 [
     {
         "name": "model",
-        "label": "Model ID",
-        "type": "text",
-        "required": true
+        "label": "Model",
+        "type": "select",
+        "options": "rpc://rpcAiModels",
+        "required": true,
+        "help": "Models of the providers connected in Orvessa, as `provider/model`."
     }
 ]

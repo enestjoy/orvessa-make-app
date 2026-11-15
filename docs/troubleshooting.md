@@ -24,19 +24,27 @@ scenario.
 `gemini/gemini-flash-latest` did not answer within Make's 40-second module limit; use the
 *lite* model for quick calls.
 
-**Still to change.**
+**Fixed in the app.** `base.jsonc` maps Orvessa's errors: a 502 is now a `RuntimeError` with an
+explanation (pick another model), not a retried outage; 4xx errors quote Orvessa's message and
+request ID. The model is picked from a list of the models offered now.
 
-- In this app: map Orvessa's errors in `base.jsonc` so a refused request shows Orvessa's
-  message and is not retried as an outage, and offer the model as a list from
-  *List AI Models* instead of a typed ID.
-- In Orvessa: answer a provider's "model not found" with a 4xx error that names the model, and
-  stop listing a provider's default model when the provider no longer offers it.
+**Found while fixing it.** orvessa.uk is behind Cloudflare, which replaces the body of a 502
+with its own `error code: 502`. Orvessa's JSON (code, message, request ID) never reaches Make
+for a 502, so the app shows a fixed message for 502, 503 and 504.
+
+**Still to change in Orvessa.**
+
+- Answer a provider's "model not found" with a 4xx error that names the model (a 4xx body
+  passes through Cloudflare), and stop listing a provider's default model when the provider
+  no longer offers it.
+- `GET /v1/ai/models` also lists models that cannot chat (text-to-speech, transcription,
+  embeddings, image models). The model lists in Make show them too.
 
 ## "Status Code Error: 400" on Send a Message
 
-Make shows only the status when the app does not read the error body. Orvessa's body says
+Make showed only the status because the app did not read the error body. Orvessa's body says
 what was wrong (`error.message`, for example an unknown account or a phone number in the wrong
-format). The error mapping in `base.jsonc` brings that message into the scenario.
+format); `base.jsonc` now brings that message into the scenario.
 
 ## "Maximum number of active scenarios has been exceeded"
 

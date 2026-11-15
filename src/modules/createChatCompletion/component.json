@@ -1,0 +1,9 @@
+{
+    "name": "createChatCompletion",
+    "label": "Create a Chat Completion",
+    "description": "Sends messages to an AI model through the Orvessa AI Gateway and returns its answer.",
+    "typeId": 4,
+    "connection": "orvessa-1l9fdr",
+    "altConnection": null,
+    "crud": null
+}

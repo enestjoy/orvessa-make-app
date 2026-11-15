@@ -1,9 +1,9 @@
 {
     "name": "getMessage",
     "label": "Get a Message",
-    "description": "Retrieve the current status and details of an Orvessa message.",
+    "description": "Returns a message with its current status: pending, sent, delivered, read or failed.",
     "typeId": 4,
     "connection": "orvessa-1l9fdr",
     "altConnection": null,
-    "crud": null
+    "crud": "read"
 }

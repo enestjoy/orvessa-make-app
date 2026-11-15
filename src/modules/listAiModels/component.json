@@ -1,9 +1,9 @@
 {
     "name": "listAiModels",
     "label": "List AI Models",
-    "description": "List AI models available through connected accounts in the Orvessa AI Gateway.",
-    "typeId": 4,
+    "description": "Lists the AI models you can use through the Orvessa AI Gateway, as provider/model.",
+    "typeId": 9,
     "connection": "orvessa-1l9fdr",
     "altConnection": null,
-    "crud": null
+    "crud": "read"
 }
