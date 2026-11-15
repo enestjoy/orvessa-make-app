@@ -75,4 +75,12 @@ The option lists (RPCs) can be run on their own through the Make API or MCP
 | Unknown model | `[400] … (VALIDATION_FAILED) Request ID: …`, `DataError` |
 | Retired model | `[502]` with the explanation, `RuntimeError`, not retried |
 | Unknown message ID | `[404] Message not found. Request ID: …`, `DataError` |
-| Send a Message, then Get a Message | `pending` on send, `delivered` seconds later (WhatsApp) |
+| Send a Message, then Get a Message: WhatsApp | `pending` on send, `delivered` seconds later |
+| Send a Message, then Get a Message: Telegram (`+phone`) | `pending`, then `sent` |
+| Send a Message: Bluesky (`@enestjoy.bsky.social`) | `failed`, `error_code` `invalid_message`; probably a message to the account itself |
+| Send a Message: Mastodon | Not run yet: the recipient's server is needed (`@user@server`) |
+| Create a Chat Completion, every provider (2026-11-15, all-scope key) | Groq, Gemini, GitHub, Codex and an OpenRouter free model answered; `openrouter/google/gemma-4-31b-it:free` was unavailable (502) at that moment |
+
+Sending is asynchronous: Send a Message succeeds when Orvessa queues the message. A message
+that the service refuses later shows up as `failed` with an `error_code` in Get a Message (or
+the `message.failed` webhook), not as a module error.
