@@ -1,0 +1,9 @@
+{
+	"attachedAccounts": [
+		"basic-1"
+	],
+	"crud": "read",
+	"description": "Lists the AI models you can use through the Orvessa AI Gateway, as provider/model.",
+	"label": "List AI Models",
+	"typeId": 9
+}

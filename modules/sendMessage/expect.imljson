@@ -1,0 +1,68 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpc://rpcAccounts",
+        "required": true,
+        "help": "The connected account that sends the message. Its status must be `connected`."
+    },
+    {
+        "name": "recipient",
+        "label": "Send to",
+        "type": "select",
+        "required": true,
+        "default": "phone",
+        "options": [
+            {
+                "label": "A person (phone number or username)",
+                "value": "phone",
+                "nested": [
+                    {
+                        "name": "to",
+                        "label": "Recipient",
+                        "type": "text",
+                        "required": true,
+                        "validate": {
+                            "max": 32
+                        },
+                        "help": "Depends on the account's service:\n- WhatsApp: phone number in international format, `+40711111111`\n- Telegram: `@username` or `+40711111111`\n- Mastodon: `@user@server`, sent as a direct (private) post\n- Bluesky: `@handle.bsky.social`, sent as a direct message"
+                    }
+                ]
+            },
+            {
+                "label": "An existing conversation",
+                "value": "conversation",
+                "nested": [
+                    {
+                        "name": "conversation_id",
+                        "label": "Conversation ID",
+                        "type": "text",
+                        "required": true,
+                        "help": "The `Conversation ID` of an earlier message of the same account."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "text",
+        "label": "Message",
+        "type": "text",
+        "multiline": true,
+        "required": true,
+        "validate": {
+            "max": 4096
+        }
+    },
+    {
+        "name": "idempotency_key",
+        "label": "Idempotency key",
+        "type": "text",
+        "required": true,
+        "validate": {
+            "max": 255
+        },
+        "help": "A value unique to this message, without spaces, for example the ID of the record that triggers the scenario. If the module runs again with the same key, Orvessa returns the first message instead of sending it twice."
+    }
+]

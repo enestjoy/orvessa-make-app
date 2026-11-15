@@ -1,0 +1,19 @@
+{
+    "url": "/messages",
+    "method": "POST",
+    "type": "json",
+    "headers": {
+        "Idempotency-Key": "{{parameters.idempotency_key}}"
+    },
+    "body": {
+        "account_id": "{{parameters.account_id}}",
+        // Exactly one of the two is set, depending on "Send to".
+        "to": "{{parameters.to}}",
+        "conversation_id": "{{parameters.conversation_id}}",
+        "text": "{{parameters.text}}"
+    },
+    // 202: the message is queued as "pending"; follow it with Get a Message.
+    "response": {
+        "output": "{{body}}"
+    }
+}

@@ -1,0 +1,9 @@
+{
+	"attachedAccounts": [
+		"basic-1"
+	],
+	"crud": "create",
+	"description": "Publishes a public post from a connected social account (Bluesky, Mastodon, LinkedIn, X).",
+	"label": "Create a Post",
+	"typeId": 4
+}

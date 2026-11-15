@@ -1,0 +1,9 @@
+{
+	"attachedAccounts": [
+		"basic-1"
+	],
+	"crud": "read",
+	"description": "Lists the accounts connected to your Orvessa workspace, newest first.",
+	"label": "List Connected Accounts",
+	"typeId": 9
+}

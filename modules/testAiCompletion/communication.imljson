@@ -1,0 +1,23 @@
+{
+    "url": "/ai/chat/completions",
+    "method": "POST",
+    "type": "json",
+    "body": {
+        "model": "{{parameters.model}}",
+        "messages": [
+            {
+                "role": "user",
+                "content": "Reply with the single word OK."
+            }
+        ],
+        "stream": false
+    },
+    "response": {
+        "output": {
+            "text": "{{body.choices[1].message.content}}",
+            "finish_reason": "{{body.choices[1].finish_reason}}",
+            "model": "{{body.model}}",
+            "usage": "{{body.usage}}"
+        }
+    }
+}

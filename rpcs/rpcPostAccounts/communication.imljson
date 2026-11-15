@@ -1,0 +1,16 @@
+{
+    // Every account with the posts.create operation (Bluesky, Mastodon, LinkedIn, X, Meta).
+    "url": "/capabilities",
+    "method": "GET",
+    "response": {
+        "limit": 500,
+        "iterate": {
+            "container": "{{body.items}}",
+            "condition": "{{contains(map(item.operations, 'name'), 'posts.create')}}"
+        },
+        "output": {
+            "label": "{{ifempty(item.account.display_name, item.account.id) + ' (' + item.account.provider + ', ' + item.account.status + ')'}}",
+            "value": "{{item.account.id}}"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+	"attachedAccounts": [
+		"basic-1"
+	],
+	"description": "Sends messages to an AI model through the Orvessa AI Gateway and returns its answer.",
+	"label": "Create a Chat Completion",
+	"typeId": 4
+}

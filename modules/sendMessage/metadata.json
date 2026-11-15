@@ -1,0 +1,9 @@
+{
+	"attachedAccounts": [
+		"basic-1"
+	],
+	"crud": "create",
+	"description": "Sends a text message through a connected account, to a phone number or an existing conversation.",
+	"label": "Send a Message",
+	"typeId": 4
+}

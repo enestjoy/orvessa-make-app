@@ -1,0 +1,9 @@
+{
+	"attachedAccounts": [
+		"basic-1"
+	],
+	"crud": "read",
+	"description": "Returns a message with its current status: pending, sent, delivered, read or failed.",
+	"label": "Get a Message",
+	"typeId": 4
+}

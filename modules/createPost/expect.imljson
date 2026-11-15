@@ -1,0 +1,44 @@
+[
+    {
+        "name": "account_id",
+        "label": "Account",
+        "type": "select",
+        "options": "rpc://rpcPostAccounts",
+        "required": true,
+        "help": "The social account that publishes the post. Its status must be `connected`."
+    },
+    {
+        "name": "text",
+        "label": "Text",
+        "type": "text",
+        "multiline": true,
+        "required": true,
+        "validate": {
+            "max": 5000
+        },
+        "help": "Each network has its own limit: Bluesky 300 characters, X 280, Mastodon usually 500. The post is public and cannot be deleted through Orvessa."
+    },
+    {
+        "name": "image_url",
+        "label": "Image URL",
+        "type": "url",
+        "help": "A public HTTPS link to an image to attach, where the network supports it."
+    },
+    {
+        "name": "destination",
+        "label": "Destination",
+        "type": "text",
+        "advanced": true,
+        "help": "Only where an account can publish in more than one place, for example on LinkedIn `member` or `organization:12345`. Leave empty for the account's own feed."
+    },
+    {
+        "name": "idempotency_key",
+        "label": "Idempotency key",
+        "type": "text",
+        "required": true,
+        "validate": {
+            "max": 255
+        },
+        "help": "A value unique to this post, without spaces, for example the ID of the record that triggers the scenario. If the module runs again with the same key, Orvessa does not publish twice."
+    }
+]

@@ -1,0 +1,6 @@
+{
+	"description": "Send messages through the messaging accounts you connected to Orvessa, track their delivery, and call AI models through the Orvessa AI Gateway.",
+	"global": true,
+	"language": "en",
+	"theme": "#0f766e"
+}

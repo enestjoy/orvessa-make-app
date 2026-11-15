@@ -1,0 +1,8 @@
+{
+	"attachedAccounts": [
+		"basic-1"
+	],
+	"description": "Sends a short test prompt to a model, to check that it answers through the Orvessa AI Gateway.",
+	"label": "Test AI Completion",
+	"typeId": 4
+}
