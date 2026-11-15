@@ -5,13 +5,13 @@
   "description": "Source of the Orvessa custom app for Make (make.com): connection, modules and RPCs, kept in sync with Make through its API.",
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "pull": "node scripts/make-app.mjs pull",
     "push": "node scripts/make-app.mjs push",
     "push:dry": "node scripts/make-app.mjs push --dry-run",
     "validate": "node scripts/make-app.mjs validate",
-    "test": "node --test scripts/"
+    "test": "node --test \"scripts/**/*.test.mjs\""
   }
 }

@@ -50,7 +50,7 @@ src/                   the app, one file per section, as Make stores it
   connections/<name>/  connection: parameters, API call that validates it
   modules/<name>/      one folder per module: component.json, api, parameters, interface...
   rpcs/<name>/         dynamic option lists (for example, models and accounts)
-scripts/make-app.mjs   pull, push and validate (Node 20+, no dependencies)
+scripts/make-app.mjs   pull, push and validate (Node 22+, no dependencies)
 docs/                  development guide and troubleshooting notes
 ```
 
