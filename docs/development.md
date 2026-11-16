@@ -57,8 +57,13 @@ run on demand, and delete it afterwards.
 | `send-and-check-message.json` | Send a Message, then Get a Message (**sends a real message**; use a new idempotency key for each run, or Orvessa returns the earlier message) |
 
 Each ends in *Return output*, so a run started through the Make API or MCP returns the module's
-fields, which makes it easy to check the mapping of a response. The plan allows two active
-scenarios at a time.
+fields, which makes it easy to check the mapping of a response. The current plan allows one
+active scenario at a time.
+
+To test an instant trigger without sending a message, replay a delivery from Orvessa
+(`POST /v1/webhook-deliveries/{id}/replay`, for example with Make an API Call) while the
+scenario is active. A Make webhook that no scenario uses answers `410`.
+
 To check error handling, map a wrong value (an unknown model, a random message ID) and read
 the error the run returns.
 
@@ -90,7 +95,8 @@ The option lists (RPCs) can be run on their own through the Make API or MCP
 | Import Message History, Get a History Import | `queued`, then `completed` after 10 s (1 conversation) |
 | Option lists: providers, conversations, operations | Passed |
 | Watch Messages: webhook attach | Registered in Orvessa |
-| Watch Messages: delivery | **Blocked by Orvessa**: deliveries to host names failed on Node 20+ (`connection_failed`); fixed in enestjoy/unified-account-hub#122, to verify after deploy |
+| Watch Messages: delivery (2026-11-16, after enestjoy/orvessa#122 was deployed) | Two `message.updated` events delivered (Make answered 200); each run passed the trigger's `message.id` to Get a Message, which found the message |
+| Watch Messages: webhook detach | Deleting the webhook in Make removed the endpoint in Orvessa |
 | Create a Post: Bluesky, Mastodon, LinkedIn | Published; ID and URL returned (LinkedIn returns the post URN, no URL) |
 | Create a Post: X | `[502]`: X refused the post; the reason is not passed on by Orvessa (plan or credits, expired token or duplicate text) |
 | Create a Chat Completion, every provider (2026-11-15, all-scope key) | Groq, Gemini, GitHub, Codex and an OpenRouter free model answered; `openrouter/google/gemma-4-31b-it:free` was unavailable (502) at that moment |
